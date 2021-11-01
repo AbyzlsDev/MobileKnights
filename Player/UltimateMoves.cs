@@ -6,7 +6,7 @@ using UnityEngine;
 public class UltimateMoves : MonoBehaviour
 {
 
-    public Characters characters;
+    public Characters Player;
     public Characters Viking;
     public Characters Wizard;
     public Characters Rouge;
@@ -25,11 +25,13 @@ public class UltimateMoves : MonoBehaviour
     }
 
     
+
+    
     public void TriggerUlt()
     {
         if (Time.time > nextTimeToUse)
         {
-            switch (characters.UltNumber)
+            switch (Player.UltNumber)
             {
                 case 1:
 
@@ -58,13 +60,13 @@ public class UltimateMoves : MonoBehaviour
     public IEnumerator VikingUlt()
     {
 
-        characters.damage += 70;
-        characters.CPS = 25f;
+        Player.damage += 70;
+        Player.CPS = 25f;
 
         yield return new WaitForSeconds(5);
 
-        characters.damage = Viking.damage;
-        characters.CPS = Viking.CPS;
+        Player.damage = Viking.damage;
+        Player.CPS = Viking.CPS;
 
 
 
@@ -75,7 +77,7 @@ public class UltimateMoves : MonoBehaviour
     {
         
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(new Vector3(player.position.x, player.position.y / 2, 0), characters.AttackRange + 3f, CharacterMeleeDamage.layerMask);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(new Vector3(player.position.x, player.position.y / 2, 0), Player.AttackRange + 3f, CharacterMeleeDamage.layerMask);
 
         foreach (Collider2D enemy in hits)
         {
