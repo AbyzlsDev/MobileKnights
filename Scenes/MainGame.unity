@@ -523,6 +523,7 @@ GameObject:
   - component: {fileID: 643978948}
   - component: {fileID: 643978949}
   - component: {fileID: 643978950}
+  - component: {fileID: 643978951}
   m_Layer: 3
   m_Name: PlayerSprite
   m_TagString: Player
@@ -673,7 +674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: debd7166677c17d469c4d5cffae15a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
+  Player: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
   Viking: {fileID: 11400000, guid: c122aa43c8f7d10468327eef58a2cf7b, type: 2}
   Wizard: {fileID: 11400000, guid: 4d75e1741ba1dcb4cb7824baf0a99cb0, type: 2}
   Rouge: {fileID: 11400000, guid: f6c6eb85e94c2e445bc7e15be8c42a21, type: 2}
@@ -743,6 +744,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
+--- !u!95 &643978951
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643978940}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee8f5ffd473102a43a7047c5731761d3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &898544237
 GameObject:
   m_ObjectHideFlags: 0
