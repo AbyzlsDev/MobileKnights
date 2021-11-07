@@ -22,7 +22,7 @@ public class Characters : ScriptableObject
     public float positionZ;
     public float pointsAfterKill;
     public float score;
-
+    public RuntimeAnimatorController animationController;
 
 
 

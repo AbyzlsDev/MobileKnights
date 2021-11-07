@@ -15,7 +15,16 @@ public class PlayerControler : MonoBehaviour
     public GameObject Player;
     public Rigidbody2D rb;
     bool IsRight = true;
+  
     
+
+
+
+
+    public Animator animator;
+
+   
+
 
 
     void Start()
@@ -23,6 +32,7 @@ public class PlayerControler : MonoBehaviour
         moveSpeed = characters.speed;
         jumpHeight = characters.jumpHeight;
         Player.GetComponent<SpriteRenderer>().sprite = characters.sprite;
+        GetComponentInChildren<Animator>().runtimeAnimatorController = characters.animationController;
     }
 
     // Update is called once per frame
@@ -32,13 +42,16 @@ public class PlayerControler : MonoBehaviour
         {
 
             horizontal = Input.GetAxis("Horizontal");
-            jumpButton = Input.GetAxis("Jump");
+            jumpButton = Input.GetAxisRaw("Jump");
 
-            Vector3 move = transform.right * horizontal;
-            Vector3 jump = transform.up * jumpButton;
+            Vector3 move = transform.right * horizontal * moveSpeed;
+            Vector3 jump = transform.up * jumpButton * jumpHeight;
 
-            controler.Move(move * moveSpeed * Time.deltaTime);
-            controler.Move(jump * jumpHeight * Time.deltaTime);
+            controler.Move(move * Time.deltaTime);
+
+            controler.Move(jump * Time.deltaTime);
+
+            Debug.Log(controler.isGrounded);
 
             if (rb.rotation != 0) rb.rotation = 0;
 
@@ -47,6 +60,7 @@ public class PlayerControler : MonoBehaviour
 
                 IsRight = false;
                 Player.transform.eulerAngles = new Vector3(0, 180, 0);
+                animator.SetFloat("Speed", Mathf.Abs(move.x));
 
             }
 
@@ -55,8 +69,33 @@ public class PlayerControler : MonoBehaviour
 
                 IsRight = true;
                 Player.transform.eulerAngles = new Vector3(0, 0, 0);
+                animator.SetFloat("Speed", Mathf.Abs(move.x));
+            }
+
+            if (Input.GetAxis("Horizontal") == 0) {
+
+                animator.SetFloat("Speed", Mathf.Abs(move.x));
 
             }
+
+            
+
+            if (Input.GetAxis("Jump") != 0)
+            {
+                
+                animator.SetBool("IsJumping", true);
+
+            }
+            else
+            {
+                
+                animator.SetBool("IsJumping", false);
+
+            } // add a viking jump animation
+            //finish wizard and viking animations
+            
+
+            
 
         }
         else {
@@ -69,5 +108,7 @@ public class PlayerControler : MonoBehaviour
 
     }
 
+
+    
 
 }

@@ -546,11 +546,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 9.81
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &643978942
 BoxCollider2D:
@@ -754,7 +754,7 @@ Animator:
   m_GameObject: {fileID: 643978940}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ee8f5ffd473102a43a7047c5731761d3, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -940,6 +940,7 @@ GameObject:
   - component: {fileID: 968600316}
   - component: {fileID: 968600317}
   - component: {fileID: 968600318}
+  - component: {fileID: 968600319}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1074,6 +1075,25 @@ MonoBehaviour:
   CoinValue: 0
   text: {fileID: 1366109766}
   characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
+--- !u!95 &968600319
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968600311}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5465aa09c19b1c24e9fd027aed91ca6b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &991816267
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,6 +1236,7 @@ MonoBehaviour:
   characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
   Player: {fileID: 643978940}
   rb: {fileID: 643978941}
+  animator: {fileID: 643978951}
 --- !u!212 &993774194
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1461,7 +1482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1121144549
 Rigidbody2D:
   serializedVersion: 4
@@ -1980,8 +2001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a345fa6759adec3488f40155c605e201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 898544240}
-  playerTransform: {fileID: 1218166780}
 --- !u!1 &1316417123
 GameObject:
   m_ObjectHideFlags: 0
@@ -2736,7 +2755,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &2024198300
 BoxCollider2D:
   m_ObjectHideFlags: 0
