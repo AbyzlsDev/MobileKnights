@@ -15,15 +15,20 @@ public class PlayerControler : MonoBehaviour
     public GameObject Player;
     public Rigidbody2D rb;
     bool IsRight = true;
-  
-    
-
-
-
+    bool isGrounded;
 
     public Animator animator;
 
-   
+    bool isJumping = false;
+
+    float JumpCounter = 0f;
+
+    bool canDoubleJump;
+
+    float rayDistance = 2f;
+    public LayerMask layerMask;
+
+
 
 
 
@@ -40,20 +45,18 @@ public class PlayerControler : MonoBehaviour
     {
         if (Player != null)
         {
+           
 
-            horizontal = Input.GetAxis("Horizontal");
+            horizontal = Input.GetAxisRaw("Horizontal");
             jumpButton = Input.GetAxisRaw("Jump");
 
+            
+           
+            // Left-right movement
+
             Vector3 move = transform.right * horizontal * moveSpeed;
-            Vector3 jump = transform.up * jumpButton * jumpHeight;
 
             controler.Move(move * Time.deltaTime);
-
-            controler.Move(jump * Time.deltaTime);
-
-            Debug.Log(controler.isGrounded);
-
-            if (rb.rotation != 0) rb.rotation = 0;
 
             if (Input.GetAxis("Horizontal") < 0 && IsRight == true)
             {
@@ -72,43 +75,69 @@ public class PlayerControler : MonoBehaviour
                 animator.SetFloat("Speed", Mathf.Abs(move.x));
             }
 
-            if (Input.GetAxis("Horizontal") == 0) {
+            if (Input.GetAxis("Horizontal") == 0)
+            {
 
                 animator.SetFloat("Speed", Mathf.Abs(move.x));
 
             }
 
-            
+            //Jump movement and ground checks
 
-            if (Input.GetAxis("Jump") != 0)
-            {
-                
-                animator.SetBool("IsJumping", true);
+            isGrounded = Physics2D.OverlapCircle(Player.transform.position, 2f, layerMask);
+
+
+            if (jumpButton != 0 && isGrounded) {
+           
+                Jump();
 
             }
-            else
+
+           
+
+            if (jumpButton != 0 && !isGrounded)
             {
-                
+
+                animator.SetBool("IsJumping", true);
+                animator.SetBool("IsGrounded", false);
+
+            }
+            else if (jumpButton == 0 && !isGrounded)
+            {
+
                 animator.SetBool("IsJumping", false);
+                animator.SetBool("IsGrounded", false);
 
-            } // add a viking jump animation
-            //finish wizard and viking animations
-            
+            }
+            else if (jumpButton == 0 && isGrounded) {
 
-            
+                animator.SetBool("IsJumping", false);
+                animator.SetBool("IsGrounded", true);
+
+            }
+
+            // Anti-rotation
+
+            if (rb.rotation != 0) rb.rotation = 0;
+
 
         }
-        else {
+        else
+        {
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            
+
 
         }
 
 
     }
 
+    void Jump() {
 
-    
+        rb.velocity = Vector2.up * jumpHeight;
+
+    }
+
 
 }

@@ -12,17 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9211b509a5ad3cb47991971f313b155d, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 20
   jumpHeight: 30
-  sprite: {fileID: 21300000, guid: 816345ce4ff1d2044a280e308e0e5d35, type: 3}
-  damage: 5
-  CPS: 25
-  AttackRange: 0.1
+  sprite: {fileID: 21300000, guid: 862dd854c8c9b0f4289b9f3ba23c199e, type: 3}
+  damage: 10
+  CPS: 1
+  AttackRange: 2
   description: 
   Name: 
-  UltNumber: 3
-  HP: 20
+  UltNumber: 2
+  HP: 100
   maxHP: 100
-  positionX: -0.5644913
-  positionY: 0.5119343
+  positionX: -3.3774447
+  positionY: 0.5282537
   positionZ: 0
+  pointsAfterKill: 0
+  score: 125
+  animationController: {fileID: 9100000, guid: 5465aa09c19b1c24e9fd027aed91ca6b, type: 2}
