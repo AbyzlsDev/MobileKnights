@@ -23,6 +23,7 @@ public class PlayerChoose : MonoBehaviour
         characters.HP = Viking.HP;
         characters.maxHP = Viking.maxHP;
         characters.animationController = Viking.animationController;
+        characters.fireModeID = Viking.fireModeID;
 
 
 
@@ -43,6 +44,7 @@ public class PlayerChoose : MonoBehaviour
         characters.HP = Wizard.HP;
         characters.maxHP = Wizard.maxHP;
         characters.animationController = Wizard.animationController;
+        characters.fireModeID = Wizard.fireModeID;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
@@ -60,6 +62,7 @@ public class PlayerChoose : MonoBehaviour
         characters.HP = Rouge.HP;
         characters.maxHP = Rouge.maxHP;
         characters.animationController = Rouge.animationController;
+        characters.fireModeID = Rouge.fireModeID;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 

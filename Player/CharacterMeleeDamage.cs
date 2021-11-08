@@ -10,8 +10,6 @@ public class CharacterMeleeDamage : MonoBehaviour
     int damage;
     public LayerMask layerMask;
     public Transform attackPoint;
-    float nextTimeToShoot;
-    float CPS;
     float AttackRange;
     UltimateMoves ults;
    
@@ -22,7 +20,6 @@ public class CharacterMeleeDamage : MonoBehaviour
     void Start()
     {
         ults = GetComponent<UltimateMoves>();
-        CPS = characters.CPS;
         AttackRange = characters.AttackRange;
         damage = characters.damage;
        
@@ -35,17 +32,9 @@ public class CharacterMeleeDamage : MonoBehaviour
     void Update()
     {
 
-        CPS = characters.CPS;
         AttackRange = characters.AttackRange;
         damage = characters.damage;
 
-        if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToShoot) {
-
-            nextTimeToShoot = Time.time + 1 / CPS;
-            Shoot();
-
-          
-        }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -56,7 +45,7 @@ public class CharacterMeleeDamage : MonoBehaviour
         }
 
     }
-    void Shoot()
+    public void Shoot()
     {
 
 

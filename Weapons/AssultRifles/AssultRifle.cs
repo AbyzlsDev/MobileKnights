@@ -5,39 +5,20 @@ using UnityEngine;
 public class AssultRifle : MonoBehaviour
 {
     public GameObject bullet;
-    GameObject shotBullet;
-    public Transform ShootingPoint;
 
-    float maxAmmo = 20;
-    float maxAmmoInReserve = 60;
-
-    private float nextTimeToShoot = 0f;
-
-    float fireRate = 5f;
+    public int damage = 20;
+    float velocity = 20f;
     
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform ShootingPoint;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToShoot)
-        {
-            nextTimeToShoot = Time.time + 1f / fireRate;
-            
-           Shoot();
+   public void Shoot() {
 
-        }
+        GameObject bulletInstance = Instantiate(bullet, ShootingPoint.position, Quaternion.identity);
 
-    }
+        bulletInstance.GetComponent<Rigidbody2D>().velocity = transform.right * velocity;
 
-   void Shoot() {
-
-       Instantiate(bullet, ShootingPoint.position, Quaternion.identity);
+        Destroy(bulletInstance, 7);
      
     }
 }

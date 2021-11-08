@@ -4,22 +4,15 @@ using UnityEngine;
 
 public class BulletOnHit : MonoBehaviour
 {
-    int damage = 20;
-    float velocity = 100f;
-    public Rigidbody2D Rigidbody;
+    
+ 
+    public AssultRifle shootingScirpt;
+
+   
     // Start is called before the first frame update
-    void Start()
-    {
-        Rigidbody = GetComponent<Rigidbody2D>();
-        Rigidbody.velocity = transform.right * velocity;
+   
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -33,8 +26,9 @@ public class BulletOnHit : MonoBehaviour
 
             if (target != null) {
 
-                target.TakeDamage(damage);
-                
+                target.TakeDamage(shootingScirpt.damage);
+                Destroy(gameObject);
+
             }
 
         }

@@ -23,3 +23,10 @@ MonoBehaviour:
   UltNumber: 3
   HP: 100
   maxHP: 100
+  positionX: 0
+  positionY: 0
+  positionZ: 0
+  pointsAfterKill: 0
+  score: 0
+  animationController: {fileID: 0}
+  fireModeID: 1

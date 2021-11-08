@@ -29,3 +29,4 @@ MonoBehaviour:
   pointsAfterKill: 0
   score: 0
   animationController: {fileID: 9100000, guid: 5465aa09c19b1c24e9fd027aed91ca6b, type: 2}
+  fireModeID: 2
