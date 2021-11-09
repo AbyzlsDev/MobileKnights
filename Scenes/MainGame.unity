@@ -749,7 +749,7 @@ Animator:
   m_GameObject: {fileID: 643978940}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 84f44cbe89b194343940df970c40a374, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2086,6 +2086,7 @@ GameObject:
   - component: {fileID: 1316417124}
   - component: {fileID: 1316417127}
   - component: {fileID: 1316417128}
+  - component: {fileID: 1316417129}
   m_Layer: 0
   m_Name: bullet
   m_TagString: Untagged
@@ -2197,6 +2198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingScirpt: {fileID: 643978953}
+  animator: {fileID: 1316417129}
 --- !u!50 &1316417128
 Rigidbody2D:
   serializedVersion: 4
@@ -2218,6 +2220,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &1316417129
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316417123}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: acf3cfa5b87d5b74bbe833327b2232b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1366109764
 GameObject:
   m_ObjectHideFlags: 0

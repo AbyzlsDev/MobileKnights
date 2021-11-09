@@ -5,7 +5,6 @@ using UnityEngine;
 public class AssultRifle : MonoBehaviour
 {
     public GameObject bullet;
-
     public int damage = 20;
     float velocity = 20f;
     
@@ -18,7 +17,7 @@ public class AssultRifle : MonoBehaviour
 
         bulletInstance.GetComponent<Rigidbody2D>().velocity = transform.right * velocity;
 
-        Destroy(bulletInstance, 7);
+        Destroy(bulletInstance, 2);
      
     }
 }
