@@ -6,9 +6,9 @@ public class TestiingScript : MonoBehaviour
     public int CoinValue;
     public Text text;
 
-    public Characters characters;
+    
 
-    public void SavePlayer()
+    public void SavePlayer(Characters characters)
     {
         Debug.Log("Pressed the button");
         SaveSystem.SavePlayer(characters);

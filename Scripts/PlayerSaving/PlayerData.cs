@@ -9,12 +9,13 @@ public class PlayerData
     public float HP;
     public float[] position;
     public float score;
+   
     
 
 
     public PlayerData(Characters characters) {
 
-        
+
         HP = characters.HP;
 
         score = characters.score;

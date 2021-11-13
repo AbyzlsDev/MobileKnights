@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+
 public class PlayerInventory : MonoBehaviour
 {
 
     public List<GameObject> item = new List<GameObject>();
 
-    GameObject currentItem;
+   // GameObject currentItem;
 
-   public Transform Hand;
+  // public Transform Hand;
 
-   string[] tags = {"item"};
+     string[] tags = {"item"};
 
     int maxWeapons = 3;
 
@@ -25,7 +27,7 @@ public class PlayerInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+        /*if (Input.GetKeyDown(KeyCode.Alpha1)) {
 
             SelectItem(0);
 
@@ -47,13 +49,13 @@ public class PlayerInventory : MonoBehaviour
 
 
         }
-
+        
 
         if (Input.GetKeyDown(KeyCode.Q) && currentItem != null) {
 
             currentItem.transform.parent = null;
 
-            currentItem.transform.position = Hand.position;
+           currentItem.transform.position = Hand.position;
 
             currentItem.GetComponent<Rigidbody2D>().isKinematic = false;
 
@@ -79,13 +81,13 @@ public class PlayerInventory : MonoBehaviour
         }
 
        
-
+        
 
 
 
     }
 
-    void SelectItem(int index) {
+  /*  void SelectItem(int index) {
 
         if (item.Count > index && item[index] != null) {
 
@@ -114,6 +116,7 @@ public class PlayerInventory : MonoBehaviour
 
         currentItem.GetComponent<Rigidbody2D>().isKinematic = true;
     
+        */
     }
 
     void OnTriggerEnter2D(Collider2D ColliderHit)
@@ -124,8 +127,8 @@ public class PlayerInventory : MonoBehaviour
             {
                 item.Add(ColliderHit.gameObject);
                 ColliderHit.gameObject.SetActive(false);
-                ColliderHit.transform.parent = Hand;
-                ColliderHit.transform.localPosition = Vector3.zero;
+                //ColliderHit.transform.parent = Hand;
+               // ColliderHit.transform.localPosition = Vector3.zero;
 
             }
         }

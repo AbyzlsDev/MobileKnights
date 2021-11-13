@@ -6,6 +6,7 @@ public class PlayerLoadData : MonoBehaviour
 {
 
    public Characters characters;
+   
     
 
     private void Awake()

@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     public Text text;
     public float Score = 0f;
     public Characters characters;
+    public PlayerInventory playerInventory;
 
     
     private void Awake()

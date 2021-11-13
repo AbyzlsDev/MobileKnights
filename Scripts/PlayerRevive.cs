@@ -5,12 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerRevive : MonoBehaviour
 {
-    public Characters characters;
-
-    
-
+   
     // Start is called before the first frame update
-    public void RevivePlayer() {
+    public void RevivePlayer(Characters characters) {
 
         characters.HP = characters.maxHP;
 
