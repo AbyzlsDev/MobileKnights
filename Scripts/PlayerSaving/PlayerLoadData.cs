@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerLoadData : MonoBehaviour
 {
 
    public Characters characters;
+   public PlayerInventory playerInventory;
    
     
 
@@ -13,11 +12,17 @@ public class PlayerLoadData : MonoBehaviour
     {
         PlayerData data = SaveSystem.LoadPlayer();
 
+
         characters.HP = data.HP;
 
         characters.score = data.score;
 
-        transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);  
+        transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
+
+        playerInventory.item = data.items;
+       
+            
+
         
     }
 }

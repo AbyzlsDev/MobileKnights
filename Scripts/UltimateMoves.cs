@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class UltimateMoves : MonoBehaviour
@@ -13,6 +13,8 @@ public class UltimateMoves : MonoBehaviour
 
     public Transform player;
 
+    public Button UltButton;
+
     CharacterMeleeDamage CharacterMeleeDamage;
 
     float nextTimeToUse;
@@ -24,9 +26,26 @@ public class UltimateMoves : MonoBehaviour
         
     }
 
-    
+    private void Update()
+    {
+        if (Time.time < nextTimeToUse)
+        {
 
-    
+            Color col = UltButton.GetComponent<Image>().color;
+            col.a = 0.5f;
+            UltButton.GetComponent<Image>().color = col;
+
+        }
+        else if(Time.time >= nextTimeToUse) {
+
+            Color col = UltButton.GetComponent<Image>().color;
+            col.a = 1;
+            UltButton.GetComponent<Image>().color = col;
+
+        }
+    }
+
+
     public void TriggerUlt()
     {
         if (Time.time > nextTimeToUse)

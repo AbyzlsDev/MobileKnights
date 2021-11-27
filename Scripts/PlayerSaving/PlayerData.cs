@@ -1,6 +1,6 @@
-using System.Collections;
+
 using System.Collections.Generic;
-using UnityEngine;
+
 [System.Serializable]
 public class PlayerData 
 {
@@ -9,12 +9,14 @@ public class PlayerData
     public float HP;
     public float[] position;
     public float score;
+    public List<float> items = new List<float>();
    
     
 
 
-    public PlayerData(Characters characters) {
+    public PlayerData(Characters characters, PlayerInventory playerInventory) {
 
+        
 
         HP = characters.HP;
 
@@ -24,6 +26,8 @@ public class PlayerData
         position[0] = characters.positionX;
         position[1] = characters.positionY;
         position[2] = characters.positionZ;
+
+        items = playerInventory.item;
 
 
     }

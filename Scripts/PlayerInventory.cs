@@ -1,33 +1,43 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+
 
 public class PlayerInventory : MonoBehaviour
 {
 
-    public List<GameObject> item = new List<GameObject>();
+    public List<float> item = new List<float>();
 
-   // GameObject currentItem;
+    public Characters characters;
+    public PlayerInventory playerInventory;
+    public ItemScriptableObject[] itemsArray;
 
-  // public Transform Hand;
+    // GameObject currentItem;
 
-     string[] tags = {"item"};
+    //public Transform Hand;
+
+    public Transform dropPoint;
+
+    //9 slot inv, 1 slot hand, slot -> hand, slot empty, hand drop
+
+    string[] tags = { "item" };
+
+    private float nextTimeToDrop = 0f;
 
     int maxWeapons = 3;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.Alpha1)) {
+       /* if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
 
             SelectItem(0);
 
@@ -48,92 +58,135 @@ public class PlayerInventory : MonoBehaviour
             SelectItem(2);
 
 
-        }
-        
+        }*/
 
-        if (Input.GetKeyDown(KeyCode.Q) && currentItem != null) {
 
-            currentItem.transform.parent = null;
-
-           currentItem.transform.position = Hand.position;
-
-            currentItem.GetComponent<Rigidbody2D>().isKinematic = false;
-
-            var WeaponInstanceId = currentItem.GetInstanceID();
-
-            for (int i = 0; i < item.Count; i++)
+        /*    if (Input.GetKeyDown(KeyCode.Q) && currentItem != null)
             {
 
-                if (item[i].GetInstanceID() == WeaponInstanceId)
+                currentItem.transform.parent = null;
+
+                currentItem.transform.position = Hand.position;
+
+                currentItem.GetComponent<Rigidbody2D>().isKinematic = false;
+
+                var WeaponInstanceId = currentItem.GetInstanceID();
+
+                for (int i = 0; i < item.Count; i++)
                 {
 
-                    item.RemoveAt(i);
-                    break;
+                    if (item[i].GetInstanceID() == WeaponInstanceId)
+                    {
+
+                        item.RemoveAt(i);
+                        break;
+
+                    }
+
+
+
 
                 }
 
-
-
-
+                currentItem = null;
             }
 
-            currentItem = null;
-        }
-
-       
-        
+            */
 
 
 
-    }
-
-  /*  void SelectItem(int index) {
-
-        if (item.Count > index && item[index] != null) {
-
-            if (currentItem != null) {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
 
 
-                currentItem.SetActive(false);
+
+            ItemInstance();
+            item.RemoveAt(0);
+
+
             
-            
-            }
-
-            currentItem = item[index];
-
-            currentItem.SetActive(true);
-
-            DisableGravity();
 
 
         }
-    
-    
-    
-    }
 
-    void DisableGravity() {
+        /*  void SelectItem(int index)
+          {
 
-        currentItem.GetComponent<Rigidbody2D>().isKinematic = true;
-    
+              if (item.Count > index)
+              {
+
+                  if (currentItem != null)
+                  {
+
+
+                      currentItem.SetActive(false);
+
+
+                  }
+
+                  currentItem = item[index];
+
+                  currentItem.SetActive(true);
+
+                  DisableGravity();
+
+
+              }
+
+
+
+          }
+
+          void DisableGravity()
+          {
+
+              currentItem.GetComponent<Rigidbody2D>().isKinematic = true;
+
+
+          }
         */
+        
     }
 
     void OnTriggerEnter2D(Collider2D ColliderHit)
     {
+
+
         for (int i = 0; i < tags.Length; i++)
         {
             if (ColliderHit.transform.CompareTag(tags[i]) && item.Count < maxWeapons)
             {
-                item.Add(ColliderHit.gameObject);
-                ColliderHit.gameObject.SetActive(false);
-                //ColliderHit.transform.parent = Hand;
-               // ColliderHit.transform.localPosition = Vector3.zero;
+
+                item.Add(ColliderHit.gameObject.GetComponent<ItemGetID>().ID);
+                SaveSystem.SavePlayer(characters, playerInventory);
+                Destroy(ColliderHit.gameObject);
+
 
             }
         }
-       
-    }
 
+    }
+    void ItemInstance()
+    {
+        GameObject ItemInst = new GameObject();
+        ItemInst.transform.localScale = new Vector2(4, 4);
+        ItemInst.AddComponent<ItemGetID>();
+        ItemInst.AddComponent<SpriteRenderer>();
+        ItemInst.AddComponent<BoxCollider2D>().isTrigger = true;
+        ItemInst.GetComponent<BoxCollider2D>().size = new Vector2(0.5f, 0.5f);
+        // ItemInst.AddComponent<BoxCollider2D>().size = new Vector2(0.5f, 0.5f);
+
+            ItemInst.GetComponent<ItemGetID>().ID = item[0];
+
+            ItemInst.GetComponent<SpriteRenderer>().sprite = itemsArray[itemsArray.Length - (int)item[0]].sprite;
+            ItemInst.tag = "item";
+            Instantiate(ItemInst, dropPoint.position, Quaternion.identity);
+
+
+        
+        
+
+
+    }
 
 }

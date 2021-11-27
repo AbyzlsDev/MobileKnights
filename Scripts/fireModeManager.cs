@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class fireModeManager : MonoBehaviour
 {
@@ -8,16 +7,28 @@ public class fireModeManager : MonoBehaviour
     public CharacterMeleeDamage closedRangeMode;
     public Characters characters;
 
+    public Button attackButton;
+
     float nextTimeToShoot = 0f;
+
+    
 
     // Update is called once per frame
     void Update()
     {
-        switch (characters.fireModeID) {
+        Shoot();
+
+
+    }
+
+    public void Shoot() {
+
+        switch (characters.fireModeID)
+        {
 
             case 1: // melee
 
-                if (Input.GetButtonDown("Fire1") && Time.time >= nextTimeToShoot)
+                if (Input.GetMouseButtonDown(0) && Time.time >= nextTimeToShoot)
                 {
 
                     nextTimeToShoot = Time.time + 1 / characters.CPS;
@@ -30,7 +41,7 @@ public class fireModeManager : MonoBehaviour
 
             case 2: // ranged
 
-                if (Input.GetButton("Fire1") && Time.time >= nextTimeToShoot)
+                if (Input.GetMouseButtonDown(0) && Time.time >= nextTimeToShoot)
                 {
                     nextTimeToShoot = Time.time + 1f / characters.CPS;
 
@@ -38,9 +49,11 @@ public class fireModeManager : MonoBehaviour
 
                 }
                 break;
-        
-        
+
+
         }
-        
+
     }
+
+   
 }

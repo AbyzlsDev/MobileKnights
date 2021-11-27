@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterMeleeDamage : MonoBehaviour
@@ -39,7 +37,7 @@ public class CharacterMeleeDamage : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
 
-            ults.TriggerUlt();
+            ultTrigger();
 
 
         }
@@ -56,6 +54,12 @@ public class CharacterMeleeDamage : MonoBehaviour
 
         }
 
+
+    }
+
+    public void ultTrigger() {
+
+        ults.TriggerUlt();
 
     }
 }

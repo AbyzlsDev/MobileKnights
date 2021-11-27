@@ -1,31 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using EasyJoystick;
 
 public class PlayerControler : MonoBehaviour
 {
 
-    float horizontal;
     float jumpButton;
+
+    float horizontalController;
+   
     float moveSpeed;
+
     public CharacterController controler;
+
     float jumpHeight;
+
     public Characters characters;
+
     public GameObject Player;
+
     public Rigidbody2D rb;
+
     bool IsRight = true;
+
     bool isGrounded;
 
     public Animator animator;
 
-    bool isJumping = false;
+    public Joystick joystick;
 
-    float JumpCounter = 0f;
+    
 
-    bool canDoubleJump;
-
-    float rayDistance = 2f;
     public LayerMask layerMask;
 
 
@@ -43,57 +48,106 @@ public class PlayerControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
         if (Player != null)
         {
            
 
-            horizontal = Input.GetAxisRaw("Horizontal");
+           
             jumpButton = Input.GetAxisRaw("Jump");
 
-            
-           
+            horizontalController = joystick.Horizontal();
+          
+
+
             // Left-right movement
 
-            Vector3 move = transform.right * horizontal * moveSpeed;
 
-            controler.Move(move * Time.deltaTime);
 
-            if (Input.GetAxis("Horizontal") < 0 && IsRight == true)
+            Vector3 joystickMove = horizontalController * transform.right * moveSpeed;
+
+            
+
+            controler.Move(joystickMove * Time.deltaTime);
+
+           
+
+
+
+
+            if (joystick.Horizontal() < 0 && IsRight == true)
             {
-
+               
                 IsRight = false;
                 Player.transform.eulerAngles = new Vector3(0, 180, 0);
-                animator.SetFloat("Speed", Mathf.Abs(move.x));
+
+                
+                   if(joystick.Horizontal() < 0)
+                {
+                    
+                    animator.SetFloat("Speed", Mathf.Abs(joystickMove.x));
+                   
+                }
+                
+
 
             }
 
-            if (Input.GetAxis("Horizontal") > 0 && IsRight == false)
+          if (joystick.Horizontal() > 0 && IsRight == false)
             {
-
+              
                 IsRight = true;
                 Player.transform.eulerAngles = new Vector3(0, 0, 0);
-                animator.SetFloat("Speed", Mathf.Abs(move.x));
+
+                if (joystick.Horizontal() > 0)
+                {
+
+                    animator.SetFloat("Speed", Mathf.Abs(joystickMove.x));
+
+                }
+                
+
+
             }
 
-            if (Input.GetAxis("Horizontal") == 0)
-            {
 
-                animator.SetFloat("Speed", Mathf.Abs(move.x));
 
-            }
+              if ( horizontalController == 0) {
+
+
+
+                 animator.SetFloat("Speed", Mathf.Abs(joystickMove.x)); 
+
+
+              }
+
+
+
 
             //Jump movement and ground checks
 
             isGrounded = Physics2D.OverlapCircle(Player.transform.position, 2f, layerMask);
 
 
-            if (jumpButton != 0 && isGrounded) {
-           
+            if (jumpButton != 0) {
+
                 Jump();
 
             }
 
-           
+            if (!isGrounded)
+            {
+
+                jumpButton = 1;
+
+
+            }
+            else {
+
+                jumpButton = 0;
+
+            }
 
             if (jumpButton != 0 && !isGrounded)
             {
@@ -109,7 +163,8 @@ public class PlayerControler : MonoBehaviour
                 animator.SetBool("IsGrounded", false);
 
             }
-            else if (jumpButton == 0 && isGrounded) {
+            else if (jumpButton == 0 && isGrounded)
+            {
 
                 animator.SetBool("IsJumping", false);
                 animator.SetBool("IsGrounded", true);
@@ -135,8 +190,17 @@ public class PlayerControler : MonoBehaviour
 
     void Jump() {
 
-        rb.velocity = Vector2.up * jumpHeight;
 
+        if (isGrounded)
+        {
+
+            rb.velocity = Vector2.up * jumpHeight;
+            
+
+        }
+
+        
+       
     }
 
 

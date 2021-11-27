@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,7 +29,7 @@ public class ScoreManager : MonoBehaviour
     public void GiveScore(float score) {
 
         characters.score += score;
-        SaveSystem.SavePlayer(characters);
+        SaveSystem.SavePlayer(characters, playerInventory);
 
     }
 }

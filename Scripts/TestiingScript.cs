@@ -8,10 +8,10 @@ public class TestiingScript : MonoBehaviour
 
     
 
-    public void SavePlayer(Characters characters)
+    public void SavePlayer(Characters characters, PlayerInventory playerInventory)
     {
         Debug.Log("Pressed the button");
-        SaveSystem.SavePlayer(characters);
+        SaveSystem.SavePlayer(characters, playerInventory);
 
     }
 

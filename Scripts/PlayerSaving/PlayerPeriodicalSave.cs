@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PlayerPeriodicalSave : MonoBehaviour
@@ -7,6 +6,7 @@ public class PlayerPeriodicalSave : MonoBehaviour
     private float NextTimeToSave = 0f;
 
     public Characters characters;
+    public PlayerInventory playerInventory;
 
   
 
@@ -24,7 +24,7 @@ public class PlayerPeriodicalSave : MonoBehaviour
 
             Debug.Log("Saved the game");
 
-            SaveSystem.SavePlayer(characters);
+            SaveSystem.SavePlayer(characters, playerInventory);
 
 
         }
