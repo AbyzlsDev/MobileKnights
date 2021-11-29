@@ -6,7 +6,7 @@ public class ItemSlot : MonoBehaviour
 {
     public Image[] itemsImage;
     public PlayerInventory playerInventory;
-    public ItemScriptableObject[] itemScriptableObjects;
+    public ItemScriptableObjects[] itemScriptableObjects;
 
     
     // Start is called before the first frame update
@@ -18,7 +18,7 @@ public class ItemSlot : MonoBehaviour
         {
             float id = playerInventory.item[i];
            
-            itemsImage[i].sprite = itemScriptableObjects[itemsImage.Length - (int)id].sprite;
+            itemsImage[i].sprite = itemScriptableObjects[(int)id - 1].gameObject.GetComponent<SpriteRenderer>().sprite;
 
            
 
@@ -28,16 +28,34 @@ public class ItemSlot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        for (int i = 0; i < itemsImage.Length; i++)
+        if (itemsImage.Length == playerInventory.item.Count)
         {
-            float id = playerInventory.item[i];
+            for (int i = 0; i < itemsImage.Length; i++)
+            {
 
-            itemsImage[i].sprite = itemScriptableObjects[itemsImage.Length - (int)id].sprite;
+                float id = playerInventory.item[i];
+
+                itemsImage[i].sprite = itemScriptableObjects[(int)id - 1].gameObject.GetComponent<SpriteRenderer>().sprite;
 
 
+
+            }
+        }
+        else if(itemsImage.Length > playerInventory.item.Count) {
+
+            for (int i = 0; i < itemsImage.Length; i++)
+            {
+
+                itemsImage[i].sprite = default;
+
+                float id = playerInventory.item[i];
+
+                itemsImage[i].sprite = itemScriptableObjects[(int)id - 1].gameObject.GetComponent<SpriteRenderer>().sprite;
+
+                
+                
+            }
 
         }
-
     }
 }

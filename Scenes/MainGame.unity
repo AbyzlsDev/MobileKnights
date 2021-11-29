@@ -451,7 +451,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 169864129}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 643978950}
+        m_TargetAssemblyTypeName: PlayerInventory, PlayerClasses
+        m_MethodName: ItemInstance
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &169864129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1013,7 +1025,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435409166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.29, y: -0.27, z: 0}
+  m_LocalPosition: {x: 0.7, y: -0.27, z: 0}
   m_LocalScale: {x: 0.26719934, y: 0.22417672, z: 1}
   m_Children: []
   m_Father: {fileID: 643978943}
@@ -1451,13 +1463,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e4b71b8e2fbe447b822885bea9fd1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: []
+  item:
+  - 0
+  - 0
+  - 0
   characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
   playerInventory: {fileID: 643978950}
   itemsArray:
-  - {fileID: 11400000, guid: 6cc1423a4ae6cf24794cde40a8dc3cc2, type: 2}
-  - {fileID: 11400000, guid: 157ef701ca9286d4c94f793ed566bb87, type: 2}
-  - {fileID: 11400000, guid: fcafa1e9114ca0b40ba640fe4f09548a, type: 2}
+  - {fileID: 11400000, guid: c71ed76a99ba00e48a2e242b86aacc7f, type: 2}
+  - {fileID: 11400000, guid: 2302a1b9b5037b3498240aed5d219708, type: 2}
+  - {fileID: 11400000, guid: 514a1a6a796c99a48856901039a9036c, type: 2}
   dropPoint: {fileID: 435409167}
 --- !u!95 &643978951
 Animator:
@@ -1825,9 +1840,9 @@ MonoBehaviour:
   - {fileID: 2070039305}
   playerInventory: {fileID: 643978950}
   itemScriptableObjects:
-  - {fileID: 11400000, guid: 6cc1423a4ae6cf24794cde40a8dc3cc2, type: 2}
-  - {fileID: 11400000, guid: 157ef701ca9286d4c94f793ed566bb87, type: 2}
-  - {fileID: 11400000, guid: fcafa1e9114ca0b40ba640fe4f09548a, type: 2}
+  - {fileID: 11400000, guid: c71ed76a99ba00e48a2e242b86aacc7f, type: 2}
+  - {fileID: 11400000, guid: 2302a1b9b5037b3498240aed5d219708, type: 2}
+  - {fileID: 11400000, guid: 514a1a6a796c99a48856901039a9036c, type: 2}
 --- !u!1 &991816267
 GameObject:
   m_ObjectHideFlags: 0
@@ -2151,7 +2166,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087460178}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da9781267fe59bb4da0fca58becccdd9, type: 3}
   m_Name: 
@@ -2194,7 +2209,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087460178}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e12aa1957a5af3428c215599989599e, type: 3}
   m_Name: 
@@ -3295,7 +3310,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1631662299}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 643978950}
+        m_TargetAssemblyTypeName: PlayerInventory, PlayerClasses
+        m_MethodName: ItemInstance
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1631662299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3684,15 +3711,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868785706}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb4ae70bf0ee0ed42ae336e62223d573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemScriptableObjectsArr:
-  - {fileID: 11400000, guid: 6cc1423a4ae6cf24794cde40a8dc3cc2, type: 2}
-  - {fileID: 11400000, guid: 157ef701ca9286d4c94f793ed566bb87, type: 2}
-  - {fileID: 11400000, guid: fcafa1e9114ca0b40ba640fe4f09548a, type: 2}
+  - {fileID: 11400000, guid: c71ed76a99ba00e48a2e242b86aacc7f, type: 2}
+  - {fileID: 11400000, guid: 2302a1b9b5037b3498240aed5d219708, type: 2}
+  - {fileID: 11400000, guid: 514a1a6a796c99a48856901039a9036c, type: 2}
 --- !u!4 &1868785708
 Transform:
   m_ObjectHideFlags: 0
@@ -3804,7 +3831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &2024198300
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4224,7 +4251,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2070039305}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 643978950}
+        m_TargetAssemblyTypeName: PlayerInventory, PlayerClasses
+        m_MethodName: ItemInstance
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2070039305
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class PlayerLoadData : MonoBehaviour
    
     
 
-    private void Awake()
+   private void Awake()
     {
         PlayerData data = SaveSystem.LoadPlayer();
 

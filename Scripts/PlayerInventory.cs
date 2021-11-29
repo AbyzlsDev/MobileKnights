@@ -10,7 +10,7 @@ public class PlayerInventory : MonoBehaviour
 
     public Characters characters;
     public PlayerInventory playerInventory;
-    public ItemScriptableObject[] itemsArray;
+    public ItemScriptableObjects[] itemsArray;
 
     // GameObject currentItem;
 
@@ -24,7 +24,7 @@ public class PlayerInventory : MonoBehaviour
 
     private float nextTimeToDrop = 0f;
 
-    int maxWeapons = 3;
+   int maxWeapons = 3;
 
 
     // Start is called before the first frame update
@@ -97,13 +97,7 @@ public class PlayerInventory : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-
-
-
             ItemInstance();
-            item.RemoveAt(0);
-
-
             
 
 
@@ -166,27 +160,27 @@ public class PlayerInventory : MonoBehaviour
         }
 
     }
-    void ItemInstance()
+    public void ItemInstance()
     {
-        GameObject ItemInst = new GameObject();
-        ItemInst.transform.localScale = new Vector2(4, 4);
-        ItemInst.AddComponent<ItemGetID>();
-        ItemInst.AddComponent<SpriteRenderer>();
-        ItemInst.AddComponent<BoxCollider2D>().isTrigger = true;
-        ItemInst.GetComponent<BoxCollider2D>().size = new Vector2(0.5f, 0.5f);
-        // ItemInst.AddComponent<BoxCollider2D>().size = new Vector2(0.5f, 0.5f);
-
-            ItemInst.GetComponent<ItemGetID>().ID = item[0];
-
-            ItemInst.GetComponent<SpriteRenderer>().sprite = itemsArray[itemsArray.Length - (int)item[0]].sprite;
-            ItemInst.tag = "item";
-            Instantiate(ItemInst, dropPoint.position, Quaternion.identity);
-
-
-        
         
 
 
+       
+        for (int i = 0; i < item.Count; i++)
+        {
+            if (item[0] == item[i])
+            {
+                var id = item[i];
+                
+               GameObject ItemInst =  Instantiate(itemsArray[(int)id - 1].gameObject, dropPoint.position, Quaternion.identity);
+
+               ItemInst.transform.localScale = new Vector2(3, 3);
+
+                item.RemoveAt(i);
+                break;
+            }
+        }
+    
     }
 
 }
