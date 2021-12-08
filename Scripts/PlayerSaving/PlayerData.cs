@@ -29,7 +29,7 @@ public class PlayerData
         position[2] = characters.positionZ;
 
         items = playerInventory.item;
-        RandomKeysToSave = playerInventory.RandomKeys;
+      
         itemsOnGroundIdToSave = playerInventory.itemsOnGroundId;
     }
 

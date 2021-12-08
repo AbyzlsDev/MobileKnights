@@ -17,11 +17,11 @@ public class PlayerInventory : MonoBehaviour
     public ItemScriptableObjects[] itemsArray;
 
    
-    public List<float> RandomKeys = new List<float>();
 
-    
+
 
     public List<float> itemsOnGroundId = new List<float>();
+
     //GameObject currentItem;
 
     public Transform Hand;
@@ -160,18 +160,15 @@ public class PlayerInventory : MonoBehaviour
         {
             if (ColliderHit.transform.CompareTag(tags[i]) && item.Count < maxWeapons)
             {
-                float rKey = ColliderHit.gameObject.GetComponent<ItemGetID>().numberOfString - ColliderHit.gameObject.GetComponent<ItemGetID>().ID;
-                string rKeyS = rKey.ToString();
-
-                PlayerPrefs.DeleteKey(rKeyS);
+                
 
                 item.Add(ColliderHit.gameObject.GetComponent<ItemGetID>().ID);
 
                 itemsOnGroundId.Remove(ColliderHit.gameObject.GetComponent<ItemGetID>().ID);
 
-                RandomKeys.Remove(ColliderHit.gameObject.GetComponent<ItemGetID>().numberOfString);
-
+                
                 SaveSystem.SavePlayer(characters, playerInventory);
+
 
                 Destroy(ColliderHit.gameObject);
 
@@ -190,30 +187,20 @@ public class PlayerInventory : MonoBehaviour
                 {
                     var id = item[i];
 
-                    float RandomKey = Random.Range(0, 99999);
-
-                    RandomKeys.Add(RandomKey);
-
-                    Debug.Log(RandomKey);
 
                     GameObject ItemInst = Instantiate(itemsArray[(int)id - 1].gameObject, dropPoint.position, Quaternion.identity);
 
                     ItemInst.transform.localScale = new Vector2(3, 3);
 
-                    float numberForPrefs = id + RandomKey;
-
-                    Debug.Log(numberForPrefs);
-
-                    string nameForPrefs = numberForPrefs.ToString();
-
-                    ItemInst.GetComponent<ItemGetID>().numberOfString = RandomKey;
-
                     item.RemoveAt(i);
 
                     itemsOnGroundId.Add(id);
 
-                    PlayerPrefs.SetFloat(nameForPrefs, dropPoint.position.x);
-                    PlayerPrefs.SetFloat(nameForPrefs, dropPoint.position.y);
+                    
+
+
+                    PlayerPrefs.SetFloat(id.ToString() + "x", ItemInst.transform.position.x);
+                    PlayerPrefs.SetFloat(id.ToString() + "y", ItemInst.transform.position.y);
 
                     PlayerPrefs.Save();
 

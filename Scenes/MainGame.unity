@@ -1024,12 +1024,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435409166}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7, y: -0.27, z: 0}
-  m_LocalScale: {x: 0.26719934, y: 0.22417672, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.8000002, y: -1.08, z: 0}
+  m_LocalScale: {x: 1.0687973, y: 0.8967069, z: 1}
   m_Children: []
-  m_Father: {fileID: 643978943}
-  m_RootOrder: 5
+  m_Father: {fileID: 993774195}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &435409168
 SpriteRenderer:
@@ -1356,7 +1356,6 @@ Transform:
   - {fileID: 1602430436}
   - {fileID: 1500908452}
   - {fileID: 252095540}
-  - {fileID: 435409167}
   m_Father: {fileID: 993774195}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1495,7 +1494,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c71ed76a99ba00e48a2e242b86aacc7f, type: 2}
   - {fileID: 11400000, guid: 2302a1b9b5037b3498240aed5d219708, type: 2}
   - {fileID: 11400000, guid: 514a1a6a796c99a48856901039a9036c, type: 2}
-  RandomKeys: []
   itemsOnGroundId: []
   Hand: {fileID: 252095540}
   dropPoint: {fileID: 435409167}
@@ -2092,6 +2090,7 @@ Transform:
   - {fileID: 643978943}
   - {fileID: 1218166780}
   - {fileID: 908734121}
+  - {fileID: 435409167}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2800,7 +2799,6 @@ MonoBehaviour:
   characters: {fileID: 0}
   playerInventory: {fileID: 0}
   itemsArray: []
-  RandomKeys: []
   itemsOnGroundId: []
   Hand: {fileID: 0}
   dropPoint: {fileID: 0}

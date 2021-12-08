@@ -21,20 +21,20 @@ public class PlayerLoadData : MonoBehaviour
 
         playerInventory.item = data.items;
 
-        playerInventory.RandomKeys = data.RandomKeysToSave;
-
         playerInventory.itemsOnGroundId = data.itemsOnGroundIdToSave;
 
         for (int i = 0; i < playerInventory.itemsOnGroundId.Count; i++)
         {
             var id = playerInventory.itemsOnGroundId[i];
 
-            float x = PlayerPrefs.GetFloat((playerInventory.itemsOnGroundId[i] + playerInventory.RandomKeys[i]).ToString());
-            float y = PlayerPrefs.GetFloat((playerInventory.itemsOnGroundId[i] + playerInventory.RandomKeys[i]).ToString());
+            float x = PlayerPrefs.GetFloat(playerInventory.itemsOnGroundId[i].ToString() + "x");
+            float y = PlayerPrefs.GetFloat(playerInventory.itemsOnGroundId[i].ToString() + "y");
+
 
             Vector2 pos = new Vector2(x, y);
             GameObject ItemInst = Instantiate(itemsInstanciate.itemScriptableObjectsArr[(int)id - 1].gameObject, pos, Quaternion.identity);
 
+            ItemInst.transform.localScale = new Vector2(3, 3);
 
 
         }
