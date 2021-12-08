@@ -48,6 +48,7 @@ public class CharacterMeleeDamage : MonoBehaviour
 
 
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(attackPoint.position, AttackRange, layerMask);
+
         foreach (Collider2D enemy in hitColliders)
         {
             enemy.GetComponent<Target>().TakeDamage(damage);

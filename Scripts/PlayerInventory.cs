@@ -3,18 +3,28 @@ using UnityEngine;
 
 
 
+
+
+
 public class PlayerInventory : MonoBehaviour
 {
 
     public List<float> item = new List<float>();
 
+
     public Characters characters;
     public PlayerInventory playerInventory;
     public ItemScriptableObjects[] itemsArray;
 
-    // GameObject currentItem;
+   
+    public List<float> RandomKeys = new List<float>();
 
-    //public Transform Hand;
+    
+
+    public List<float> itemsOnGroundId = new List<float>();
+    //GameObject currentItem;
+
+    public Transform Hand;
 
     public Transform dropPoint;
 
@@ -36,10 +46,10 @@ public class PlayerInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       /* if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
 
-            SelectItem(0);
+             
 
 
         }
@@ -47,7 +57,7 @@ public class PlayerInventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
 
-            SelectItem(1);
+            
 
 
         }
@@ -55,10 +65,10 @@ public class PlayerInventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
 
-            SelectItem(2);
+           
 
 
-        }*/
+        }
 
 
         /*    if (Input.GetKeyDown(KeyCode.Q) && currentItem != null)
@@ -150,9 +160,19 @@ public class PlayerInventory : MonoBehaviour
         {
             if (ColliderHit.transform.CompareTag(tags[i]) && item.Count < maxWeapons)
             {
+                float rKey = ColliderHit.gameObject.GetComponent<ItemGetID>().numberOfString - ColliderHit.gameObject.GetComponent<ItemGetID>().ID;
+                string rKeyS = rKey.ToString();
+
+                PlayerPrefs.DeleteKey(rKeyS);
 
                 item.Add(ColliderHit.gameObject.GetComponent<ItemGetID>().ID);
+
+                itemsOnGroundId.Remove(ColliderHit.gameObject.GetComponent<ItemGetID>().ID);
+
+                RandomKeys.Remove(ColliderHit.gameObject.GetComponent<ItemGetID>().numberOfString);
+
                 SaveSystem.SavePlayer(characters, playerInventory);
+
                 Destroy(ColliderHit.gameObject);
 
 
@@ -162,25 +182,49 @@ public class PlayerInventory : MonoBehaviour
     }
     public void ItemInstance()
     {
-        
-
-
-       
-        for (int i = 0; i < item.Count; i++)
+        if (item.Count != 0)
         {
-            if (item[0] == item[i])
+            for (int i = 0; i < item.Count; i++)
             {
-                var id = item[i];
-                
-               GameObject ItemInst =  Instantiate(itemsArray[(int)id - 1].gameObject, dropPoint.position, Quaternion.identity);
+                if (item[0] == item[i])
+                {
+                    var id = item[i];
 
-               ItemInst.transform.localScale = new Vector2(3, 3);
+                    float RandomKey = Random.Range(0, 99999);
 
-                item.RemoveAt(i);
-                break;
+                    RandomKeys.Add(RandomKey);
+
+                    Debug.Log(RandomKey);
+
+                    GameObject ItemInst = Instantiate(itemsArray[(int)id - 1].gameObject, dropPoint.position, Quaternion.identity);
+
+                    ItemInst.transform.localScale = new Vector2(3, 3);
+
+                    float numberForPrefs = id + RandomKey;
+
+                    Debug.Log(numberForPrefs);
+
+                    string nameForPrefs = numberForPrefs.ToString();
+
+                    ItemInst.GetComponent<ItemGetID>().numberOfString = RandomKey;
+
+                    item.RemoveAt(i);
+
+                    itemsOnGroundId.Add(id);
+
+                    PlayerPrefs.SetFloat(nameForPrefs, dropPoint.position.x);
+                    PlayerPrefs.SetFloat(nameForPrefs, dropPoint.position.y);
+
+                    PlayerPrefs.Save();
+
+                    SaveSystem.SavePlayer(characters, playerInventory);
+
+                    break;
+                }
             }
+
         }
-    
+
     }
 
 }

@@ -16,8 +16,10 @@ public class fireModeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Shoot();
-
+        if (Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            Shoot();
+        }
 
     }
 
@@ -25,28 +27,54 @@ public class fireModeManager : MonoBehaviour
 
         switch (characters.fireModeID)
         {
-
+            
             case 1: // melee
-
-                if (Input.GetMouseButtonDown(0) && Time.time >= nextTimeToShoot)
+                if (Application.platform == RuntimePlatform.WindowsEditor)
                 {
+                    if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time >= nextTimeToShoot)
+                    {
 
-                    nextTimeToShoot = Time.time + 1 / characters.CPS;
-                    closedRangeMode.Shoot();
+                        nextTimeToShoot = Time.time + 1 / characters.CPS;
+                        closedRangeMode.Shoot();
 
 
+                    }
                 }
+                else if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer) {
+
+                    if (Time.time >= nextTimeToShoot)
+                    {
+
+                        nextTimeToShoot = Time.time + 1 / characters.CPS;
+                        closedRangeMode.Shoot();
+
+
+                    }
+                }
+                
 
                 break;
 
             case 2: // ranged
-
-                if (Input.GetMouseButtonDown(0) && Time.time >= nextTimeToShoot)
+                if (Application.platform == RuntimePlatform.WindowsEditor)
                 {
-                    nextTimeToShoot = Time.time + 1f / characters.CPS;
+                    if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time >= nextTimeToShoot)
+                    {
+                        nextTimeToShoot = Time.time + 1f / characters.CPS;
 
-                    rangedFireMode.Shoot();
+                        rangedFireMode.Shoot();
 
+                    }
+                }
+                else if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer) {
+
+                    if (Time.time >= nextTimeToShoot)
+                    {
+                        nextTimeToShoot = Time.time + 1f / characters.CPS;
+
+                        rangedFireMode.Shoot();
+
+                    }
                 }
                 break;
 

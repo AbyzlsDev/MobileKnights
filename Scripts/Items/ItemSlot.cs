@@ -7,6 +7,7 @@ public class ItemSlot : MonoBehaviour
     public Image[] itemsImage;
     public PlayerInventory playerInventory;
     public ItemScriptableObjects[] itemScriptableObjects;
+    public Sprite UIimage;
 
     
     // Start is called before the first frame update
@@ -46,7 +47,7 @@ public class ItemSlot : MonoBehaviour
             for (int i = 0; i < itemsImage.Length; i++)
             {
 
-                itemsImage[i].sprite = default;
+                itemsImage[i].sprite = UIimage;
 
                 float id = playerInventory.item[i];
 

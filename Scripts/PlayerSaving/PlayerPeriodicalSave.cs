@@ -8,8 +8,6 @@ public class PlayerPeriodicalSave : MonoBehaviour
     public Characters characters;
     public PlayerInventory playerInventory;
 
-  
-
     public GameObject player;
 
      
@@ -22,10 +20,9 @@ public class PlayerPeriodicalSave : MonoBehaviour
 
             NextTimeToSave = Time.time + 60f;
 
-            Debug.Log("Saved the game");
-
             SaveSystem.SavePlayer(characters, playerInventory);
 
+            Debug.Log("Saved the game");
 
         }
         
