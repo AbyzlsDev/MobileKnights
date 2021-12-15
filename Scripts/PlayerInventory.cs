@@ -20,7 +20,8 @@ public class PlayerInventory : MonoBehaviour
 
 
 
-    public List<float> itemsOnGroundId = new List<float>();
+    public List<float> itemsOnGroundId = new List<float>(); 
+ 
 
     //GameObject currentItem;
 
@@ -163,9 +164,9 @@ public class PlayerInventory : MonoBehaviour
                 
 
                 item.Add(ColliderHit.gameObject.GetComponent<ItemGetID>().ID);
-
+             
                 itemsOnGroundId.Remove(ColliderHit.gameObject.GetComponent<ItemGetID>().ID);
-
+                
                 
                 SaveSystem.SavePlayer(characters, playerInventory);
 
@@ -195,9 +196,6 @@ public class PlayerInventory : MonoBehaviour
                     item.RemoveAt(i);
 
                     itemsOnGroundId.Add(id);
-
-                    
-
 
                     PlayerPrefs.SetFloat(id.ToString() + "x", ItemInst.transform.position.x);
                     PlayerPrefs.SetFloat(id.ToString() + "y", ItemInst.transform.position.y);

@@ -20,6 +20,7 @@ public class ItemsInstanciate : MonoBehaviour
 
             GameObject ItemInst = Instantiate(itemScriptableObjectsArr[i].gameObject, transform.position * -i * 2, Quaternion.identity);
 
+            ItemInst.transform.localScale = new Vector2(3, 3);
             
 
         }

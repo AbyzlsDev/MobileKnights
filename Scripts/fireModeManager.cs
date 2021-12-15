@@ -16,7 +16,7 @@ public class fireModeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Application.platform == RuntimePlatform.WindowsEditor)
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             Shoot();
         }
@@ -29,7 +29,7 @@ public class fireModeManager : MonoBehaviour
         {
             
             case 1: // melee
-                if (Application.platform == RuntimePlatform.WindowsEditor)
+                if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
                 {
                     if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time >= nextTimeToShoot)
                     {
@@ -56,7 +56,7 @@ public class fireModeManager : MonoBehaviour
                 break;
 
             case 2: // ranged
-                if (Application.platform == RuntimePlatform.WindowsEditor)
+                if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
                 {
                     if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time >= nextTimeToShoot)
                     {

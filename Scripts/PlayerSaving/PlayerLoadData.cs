@@ -22,6 +22,7 @@ public class PlayerLoadData : MonoBehaviour
         playerInventory.item = data.items;
 
         playerInventory.itemsOnGroundId = data.itemsOnGroundIdToSave;
+        
 
         for (int i = 0; i < playerInventory.itemsOnGroundId.Count; i++)
         {

@@ -454,10 +454,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 610863391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5918c04bbf4a3684ebc1d194b8bb6265, type: 3}
+  m_Script: {fileID: 11500000, guid: fc4b9207fdca32448b49cb8285d21170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
 --- !u!1 &1775580571
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,12 +541,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 610863396}
-        m_TargetAssemblyTypeName: PlayerRevive, Assembly-CSharp
-        m_MethodName: RevivePlayer
-        m_Mode: 1
+        m_TargetAssemblyTypeName: RevivePlayer, PlayerClasses
+        m_MethodName: CharactersDef
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Characters, PlayerClasses
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

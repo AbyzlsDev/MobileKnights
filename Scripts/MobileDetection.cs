@@ -8,7 +8,7 @@ public class MobileDetection : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if (Application.platform == RuntimePlatform.WindowsEditor) {
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer) {
 
             MobileControls.SetActive(false);
 
