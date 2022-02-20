@@ -4,7 +4,9 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "PlayerClasses"
+        "PlayerClasses",
+        "Unity.ResourceManager",
+        "Unity.Addressables"
     ],
     "includePlatforms": [
         "Editor"

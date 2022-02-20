@@ -23,10 +23,11 @@ MonoBehaviour:
   UltNumber: 2
   HP: 100
   maxHP: 100
-  positionX: -7.544925
-  positionY: 0.35653847
-  positionZ: 0
+  positionX: -8.43
+  positionY: 0.5016821
+  positionZ: 1
   pointsAfterKill: 0
-  score: 0
+  score: 11234
   animationController: {fileID: 9100000, guid: 5465aa09c19b1c24e9fd027aed91ca6b, type: 2}
   fireModeID: 2
+  lastScene: MainGame

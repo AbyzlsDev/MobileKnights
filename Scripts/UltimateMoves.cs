@@ -22,7 +22,7 @@ public class UltimateMoves : MonoBehaviour
     void Start()
     {
         CharacterMeleeDamage = GetComponent<CharacterMeleeDamage>();
-
+        
         
     }
 

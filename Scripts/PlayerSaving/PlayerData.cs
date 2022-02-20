@@ -8,15 +8,13 @@ public class PlayerData
     public float HP;
     public float[] position;
     public float score;
-    public List<float> items = new List<float>();
-    public List<float> RandomKeysToSave = new List<float>();
-    public List<float> itemsOnGroundIdToSave = new List<float>();
+    
 
 
 
 
 
-    public PlayerData(Characters characters, PlayerInventory playerInventory) {
+    public PlayerData(Characters characters) {
 
 
         HP = characters.HP;
@@ -28,9 +26,7 @@ public class PlayerData
         position[1] = characters.positionY;
         position[2] = characters.positionZ;
 
-        items = playerInventory.item;
       
-        itemsOnGroundIdToSave = playerInventory.itemsOnGroundId;
 
         
 

@@ -8,7 +8,7 @@ public class PlayerControler : MonoBehaviour
     float jumpButton;
 
     float horizontalController;
-   
+
     float moveSpeed;
 
     public CharacterController controler;
@@ -29,16 +29,11 @@ public class PlayerControler : MonoBehaviour
 
     public Joystick joystick;
 
-    
-
     public LayerMask layerMask;
-
-
-
-
 
     void Start()
     {
+
         moveSpeed = characters.speed;
         jumpHeight = characters.jumpHeight;
         Player.GetComponent<SpriteRenderer>().sprite = characters.sprite;
@@ -49,54 +44,37 @@ public class PlayerControler : MonoBehaviour
     void Update()
     {
 
-        
-        if (Player != null)
+        if (characters.HP > 0)
         {
-           
 
-           
             jumpButton = Input.GetAxisRaw("Jump");
 
             horizontalController = joystick.Horizontal();
-          
-
 
             // Left-right movement
 
-
-
             Vector3 joystickMove = horizontalController * transform.right * moveSpeed;
-
-            
 
             controler.Move(joystickMove * Time.deltaTime);
 
-           
-
-
-
-
             if (joystick.Horizontal() < 0 && IsRight == true)
             {
-               
+
                 IsRight = false;
                 Player.transform.eulerAngles = new Vector3(0, 180, 0);
 
-                
-                   if(joystick.Horizontal() < 0)
+                if (joystick.Horizontal() < 0)
                 {
-                    
-                    animator.SetFloat("Speed", Mathf.Abs(joystickMove.x));
-                   
-                }
-                
 
+                    animator.SetFloat("Speed", Mathf.Abs(joystickMove.x));
+
+                }
 
             }
 
-          if (joystick.Horizontal() > 0 && IsRight == false)
+            if (joystick.Horizontal() > 0 && IsRight == false)
             {
-              
+
                 IsRight = true;
                 Player.transform.eulerAngles = new Vector3(0, 0, 0);
 
@@ -106,31 +84,22 @@ public class PlayerControler : MonoBehaviour
                     animator.SetFloat("Speed", Mathf.Abs(joystickMove.x));
 
                 }
-                
-
 
             }
 
+            if (horizontalController == 0)
+            {
 
+                animator.SetFloat("Speed", Mathf.Abs(joystickMove.x));
 
-              if ( horizontalController == 0) {
-
-
-
-                 animator.SetFloat("Speed", Mathf.Abs(joystickMove.x)); 
-
-
-              }
-
-
-
+            }
 
             //Jump movement and ground checks
 
             isGrounded = Physics2D.OverlapCircle(Player.transform.position, 2f, layerMask);
 
-
-            if (jumpButton != 0) {
+            if (jumpButton != 0)
+            {
 
                 Jump();
 
@@ -141,9 +110,9 @@ public class PlayerControler : MonoBehaviour
 
                 jumpButton = 1;
 
-
             }
-            else {
+            else
+            {
 
                 jumpButton = 0;
 
@@ -175,33 +144,27 @@ public class PlayerControler : MonoBehaviour
 
             if (rb.rotation != 0) rb.rotation = 0;
 
-
         }
         else
         {
-
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
+            characters.lastScene = SceneManager.GetActiveScene().name;
+            Destroy(gameObject);
+            SceneManager.LoadScene("Revive");
 
         }
 
-
     }
 
-    void Jump() {
-
+    void Jump()
+    {
 
         if (isGrounded)
         {
 
             rb.velocity = Vector2.up * jumpHeight;
-            
 
         }
 
-        
-       
     }
-
 
 }

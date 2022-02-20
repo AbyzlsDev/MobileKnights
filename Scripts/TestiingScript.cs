@@ -11,7 +11,9 @@ public class TestiingScript : MonoBehaviour
     public void SavePlayer(Characters characters, PlayerInventory playerInventory)
     {
         Debug.Log("Pressed the button");
-        SaveSystem.SavePlayer(characters, playerInventory);
+        SaveSystem.SavePlayer(characters);
+        SaveSystem.SaveItems(playerInventory);
+
 
     }
 

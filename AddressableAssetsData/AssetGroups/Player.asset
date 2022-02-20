@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  m_GroupName: Player
+  m_Data:
+    m_SerializedData: []
+  m_GUID: f31ee7ac3f4580148976f2de9572f1ce
+  m_SerializeEntries:
+  - m_GUID: 4f85b5a07b2782643ba7b3bf8063ef85
+    m_Address: Assets/Scripts/Player.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 79c6b11b40b8976439a09ce93f9cbfab
+    m_Address: Assets/Scripts/Camera.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 2cda990e2423bbf4892e6590ba056729
+    m_Address: Assets/Scenes/MainGame.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 53b608371848f10458cb6cd973ac30da
+    m_Address: Assets/Scenes/Level2.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 102900000, guid: 53b608371848f10458cb6cd973ac30da, type: 3}
+    m_TargetAsset: {fileID: 102900000, guid: 53b608371848f10458cb6cd973ac30da, type: 3}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 85f24c2510aacfa44ba6bc1d000e6c29, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 8a5573bb8d4e3d040854c97de4208852, type: 2}
+    - {fileID: 11400000, guid: 45957cc2354c7034a81798525b5647d7, type: 2}

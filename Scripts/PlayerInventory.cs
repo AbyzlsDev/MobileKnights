@@ -31,7 +31,7 @@ public class PlayerInventory : MonoBehaviour
 
     //9 slot inv, 1 slot hand, slot -> hand, slot empty, hand drop
 
-    string[] tags = { "item" };
+    string[] tags = { "level1", "item" };
 
     private float nextTimeToDrop = 0f;
 
@@ -166,10 +166,9 @@ public class PlayerInventory : MonoBehaviour
                 item.Add(ColliderHit.gameObject.GetComponent<ItemGetID>().ID);
              
                 itemsOnGroundId.Remove(ColliderHit.gameObject.GetComponent<ItemGetID>().ID);
-                
-                
-                SaveSystem.SavePlayer(characters, playerInventory);
 
+
+                SaveSystem.SaveItems(playerInventory);
 
                 Destroy(ColliderHit.gameObject);
 
@@ -202,7 +201,7 @@ public class PlayerInventory : MonoBehaviour
 
                     PlayerPrefs.Save();
 
-                    SaveSystem.SavePlayer(characters, playerInventory);
+                    SaveSystem.SaveItems(playerInventory);
 
                     break;
                 }

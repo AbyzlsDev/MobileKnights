@@ -23,6 +23,7 @@ public class Characters : ScriptableObject
     public float score;
     public RuntimeAnimatorController animationController;
     public float fireModeID; // 1 - melee; 2 - ranged
+    public string lastScene;
 
 
 

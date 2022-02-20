@@ -16,8 +16,7 @@ public class SelectCharacter : MonoBehaviour
     public void CharacterSelect() {
 
        
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene("SelectCharacter");
 
     }
 }

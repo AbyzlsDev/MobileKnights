@@ -13,7 +13,7 @@ public class ItemSlot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>();
 
         for (int i = 0; i < itemsImage.Length; i++)
         {

@@ -6,6 +6,9 @@ public class RevivePlayer : MonoBehaviour
    
     public void CharactersDef(Characters characters)
     {
+
+       
+      
         PlayerInventory playerInventory = new PlayerInventory();
 
         characters.HP = characters.maxHP;
@@ -15,11 +18,10 @@ public class RevivePlayer : MonoBehaviour
         characters.positionY = default;
         characters.positionZ = default;
 
+       SaveSystem.SavePlayer(characters);
+        
 
-       SaveSystem.SavePlayer(characters, playerInventory);
-
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(characters.lastScene);
 
     }
 

@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class PlayerTakeDamage : MonoBehaviour
@@ -7,11 +6,7 @@ public class PlayerTakeDamage : MonoBehaviour
 
     void Update()
     {
-        if (characters.HP <= 0) {
-
-            Destroy(gameObject);
-        
-        }
+       
         
     }
 

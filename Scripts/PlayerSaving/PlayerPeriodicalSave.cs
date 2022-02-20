@@ -19,7 +19,9 @@ public class PlayerPeriodicalSave : MonoBehaviour
 
             NextTimeToSave = Time.time + 60f;
 
-            SaveSystem.SavePlayer(characters, playerInventory);
+            SaveSystem.SavePlayer(characters);
+
+            SaveSystem.SaveItems(playerInventory);
 
             Debug.Log("Saved the game");
 

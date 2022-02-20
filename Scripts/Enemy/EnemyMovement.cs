@@ -22,7 +22,7 @@ public class EnemyMovement : MonoBehaviour
     {
         enemyRB = GetComponent<Rigidbody2D>();
 
-
+        player = GameObject.FindWithTag("Player").transform;
 
     }
 
