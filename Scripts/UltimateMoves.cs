@@ -100,7 +100,7 @@ public class UltimateMoves : MonoBehaviour
 
         foreach (Collider2D enemy in hits)
         {
-            enemy.GetComponent<Target>().TakeDamage(1000000000); //Damage put as a placeholder, might be a subject to change due to change in damage calculaton
+            enemy.GetComponent<Target>().TakeDamage(100); //Damage put as a placeholder, might be a subject to change due to change in damage calculaton
 
         }
 

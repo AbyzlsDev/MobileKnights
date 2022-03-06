@@ -1,35 +1,33 @@
+
+
 using UnityEngine;
+
 
 public class PlayerLoadData : MonoBehaviour
 {
 
-    public Characters characters;
+    public PlayerControler playerControler;
     public PlayerInventory playerInventory;
 
 
 
 
-    private void Awake()
-    {
+    private void Start()
+    { 
+        AllData allData = SaveSystem.LoadPlayer();
+       
 
-        PlayerData data = SaveSystem.LoadPlayer();
+      playerControler.HP = allData.HP;
 
-        ItemData itemData = SaveSystem.LoadItems();
+      playerControler.score = allData.score;
 
-        characters.HP = data.HP;
+      playerInventory.item = allData.items;
 
-        characters.score = data.score;
 
-        transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
-
-        playerInventory.item = itemData.items;
-
-        playerInventory.itemsOnGroundId = itemData.itemsOnGroundIdToSave;
-        
-
-     
+      //transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
 
     }
+   
 
-    
 }
+

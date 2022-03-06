@@ -14,12 +14,10 @@ public class PlayerChoose : MonoBehaviour
 
         characters.speed = Viking.speed;
         characters.jumpHeight = Viking.jumpHeight;
-        characters.sprite = Viking.sprite;
         characters.damage = Viking.damage;
         characters.CPS = Viking.CPS;
         characters.AttackRange = Viking.AttackRange;
         characters.UltNumber = Viking.UltNumber;
-        characters.HP = Viking.HP;
         characters.maxHP = Viking.maxHP;
         characters.animationController = Viking.animationController;
         characters.fireModeID = Viking.fireModeID;
@@ -35,12 +33,10 @@ public class PlayerChoose : MonoBehaviour
 
         characters.speed = Wizard.speed;
         characters.jumpHeight = Wizard.jumpHeight;
-        characters.sprite = Wizard.sprite;
         characters.damage = Wizard.damage;
         characters.CPS = Wizard.CPS;
         characters.AttackRange = Wizard.AttackRange; 
         characters.UltNumber = Wizard.UltNumber;
-        characters.HP = Wizard.HP;
         characters.maxHP = Wizard.maxHP;
         characters.animationController = Wizard.animationController;
         characters.fireModeID = Wizard.fireModeID;
@@ -53,12 +49,10 @@ public class PlayerChoose : MonoBehaviour
     {
         characters.speed = Rouge.speed;
         characters.jumpHeight = Rouge.jumpHeight;
-        characters.sprite = Rouge.sprite;
         characters.damage = Rouge.damage;
         characters.CPS = Rouge.CPS;
         characters.AttackRange = Rouge.AttackRange;
         characters.UltNumber = Rouge.UltNumber;
-        characters.HP = Rouge.HP;
         characters.maxHP = Rouge.maxHP;
         characters.animationController = Rouge.animationController;
         characters.fireModeID = Rouge.fireModeID;

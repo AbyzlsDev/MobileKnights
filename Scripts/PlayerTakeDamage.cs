@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerTakeDamage : MonoBehaviour
 {
-    public Characters characters;
+    public PlayerControler playerControler;
 
     void Update()
     {
@@ -13,7 +13,7 @@ public class PlayerTakeDamage : MonoBehaviour
    public void PlayerDamageTake(int damage) {
 
 
-        characters.HP -= damage;
+       playerControler.HP -= damage;
     
     
     }

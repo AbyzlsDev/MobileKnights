@@ -139,7 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f764623b576694342934dfcbe6c7d8e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
+  PlayerControler: {fileID: 5058687660417597443}
+  Characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
   slider: {fileID: 5952551442366366927}
 --- !u!114 &5952551442406098044
 MonoBehaviour:
@@ -155,6 +156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CoinValue: 0
   text: {fileID: 5952551443063652548}
+  playerControler: {fileID: 5058687660417597443}
+  playerInventory: {fileID: 5058687660765109428}
 --- !u!95 &5952551442406098045
 Animator:
   serializedVersion: 3
@@ -280,10 +283,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controler: {fileID: 5058687660417597442}
   characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
+  HP: 100
+  score: 0
   Player: {fileID: 5058687660765109454}
   rb: {fileID: 5058687660765109455}
   animator: {fileID: 5058687660765109429}
-  joystick: {fileID: 7183800063911002804}
+  joystick: {fileID: 5984883386145484498}
   layerMask:
     serializedVersion: 2
     m_Bits: 128
@@ -345,7 +350,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2755650681634515378}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b522030e6b67fb4ea849be5450db1f8, type: 3}
   m_Name: 
@@ -396,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9781267fe59bb4da0fca58becccdd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
+  playerControler: {fileID: 5058687660417597443}
   playerInventory: {fileID: 5058687660765109428}
   player: {fileID: 5058687660765109454}
 --- !u!114 &7751461980884240025
@@ -411,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74dc0976e0bc3f64aa9fd60e468ebbb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
+  playerControler: {fileID: 5058687660417597443}
   playerInventory: {fileID: 5058687660765109428}
 --- !u!114 &4726594417216484431
 MonoBehaviour:
@@ -420,14 +425,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3969453176924251595}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e12aa1957a5af3428c215599989599e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 5952551443063652548}
-  Score: 0
-  characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
+  score: 0
+  playerControler: {fileID: 5058687660417597443}
+  playerInventory: {fileID: 5058687660765109428}
 --- !u!1 &5058687660765109454
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,7 +628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d15f99db742a044d9729a3f5bec5268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
+  playerControler: {fileID: 5058687660417597443}
 --- !u!114 &5058687660765109431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -703,6 +709,7 @@ MonoBehaviour:
   - 0
   - 0
   characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
+  playerControler: {fileID: 5058687660417597443}
   playerInventory: {fileID: 5058687660765109428}
   itemsArray:
   - {fileID: 11400000, guid: c71ed76a99ba00e48a2e242b86aacc7f, type: 2}
@@ -2832,7 +2839,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5952551442406098044}
-        m_TargetAssemblyTypeName: TestiingScript, Assembly-CSharp
+        m_TargetAssemblyTypeName: TestiingScript, PlayerClasses
         m_MethodName: SavePlayer
         m_Mode: 1
         m_Arguments:

@@ -5,33 +5,33 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public Text text;
-    public float Score = 0f;
-    public Characters characters;
-  
+    public float score;
+    
+
+    public PlayerControler playerControler;
+    public PlayerInventory playerInventory;
 
     
-    void Awake()
+    void Start()
     {
-       
+        AllData playerData = SaveSystem.LoadPlayer();
 
-       PlayerData data = SaveSystem.LoadPlayer();
-
-        text.text = data.score.ToString();
+        text.text = playerData.score.ToString();
     }   
 
     // Update is called once per frame
-    void Update()
+    void Update()                                                                
     {
-        Score = characters.score;
+        score = playerControler.score;
 
-        text.text = Score.ToString();
+        text.text = score.ToString();
         
     }
 
-    public void GiveScore(float score) {
+    public void GiveScore(float scoreVoid) {
 
-        characters.score += score;
-        SaveSystem.SavePlayer(characters);
+        playerControler.score += scoreVoid;
+        SaveSystem.SavePlayer(playerControler, playerInventory);
 
     }
 }

@@ -8,11 +8,7 @@ public class SelectCharacter : MonoBehaviour
     public Image image;
 
 
-    void Update()
-    {
-       image.sprite = characters.sprite;
-
-    }
+    
     public void CharacterSelect() {
 
        

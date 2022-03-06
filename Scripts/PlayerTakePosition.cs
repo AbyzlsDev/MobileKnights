@@ -15,9 +15,9 @@ public class PlayerTakePosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        characters.positionX = transform.position.x;
+    /*    characters.positionX = transform.position.x;
         characters.positionY = transform.position.y;
-        characters.positionZ = transform.position.z;
+        characters.positionZ = transform.position.z;*/
       
 
     }

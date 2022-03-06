@@ -1,9 +1,13 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using EasyJoystick;
 
+
 public class PlayerControler : MonoBehaviour
 {
+    
+
 
     float jumpButton;
 
@@ -15,7 +19,15 @@ public class PlayerControler : MonoBehaviour
 
     float jumpHeight;
 
-    public Characters characters;
+   public Characters characters;
+   
+   //Things to be serialized
+   
+    [SerializeField] public float HP;
+
+    [SerializeField] public float score;
+    
+    // end 
 
     public GameObject Player;
 
@@ -30,13 +42,15 @@ public class PlayerControler : MonoBehaviour
     public Joystick joystick;
 
     public LayerMask layerMask;
+    
+    
+   
 
     void Start()
     {
 
         moveSpeed = characters.speed;
         jumpHeight = characters.jumpHeight;
-        Player.GetComponent<SpriteRenderer>().sprite = characters.sprite;
         GetComponentInChildren<Animator>().runtimeAnimatorController = characters.animationController;
     }
 
@@ -44,7 +58,7 @@ public class PlayerControler : MonoBehaviour
     void Update()
     {
 
-        if (characters.HP > 0)
+        if (HP > 0)
         {
 
             jumpButton = Input.GetAxisRaw("Jump");
@@ -168,3 +182,4 @@ public class PlayerControler : MonoBehaviour
     }
 
 }
+

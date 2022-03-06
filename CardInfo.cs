@@ -11,7 +11,7 @@ public class CardInfo : MonoBehaviour
     public Text Attack;
     public Text Name;
     public Text Description;
-    public Image Image;
+    //public Image Image;
 
     
 
@@ -25,7 +25,7 @@ public class CardInfo : MonoBehaviour
         Attack.text = characters.damage.ToString();
         Name.text = characters.Name.ToString();
         Description.text = characters.description.ToString();
-        Image.sprite = characters.sprite;
+        
 
 
 

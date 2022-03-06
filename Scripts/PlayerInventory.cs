@@ -9,10 +9,11 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
 
-    public List<float> item = new List<float>();
+   [SerializeField] public List<float> item = new List<float>();
 
 
     public Characters characters;
+    public PlayerControler playerControler;
     public PlayerInventory playerInventory;
     public ItemScriptableObjects[] itemsArray;
 
@@ -20,7 +21,7 @@ public class PlayerInventory : MonoBehaviour
 
 
 
-    public List<float> itemsOnGroundId = new List<float>(); 
+    [SerializeField]  public List<float> itemsOnGroundId = new List<float>(); 
  
 
     //GameObject currentItem;
@@ -168,7 +169,7 @@ public class PlayerInventory : MonoBehaviour
                 itemsOnGroundId.Remove(ColliderHit.gameObject.GetComponent<ItemGetID>().ID);
 
 
-                SaveSystem.SaveItems(playerInventory);
+                SaveSystem.SavePlayer(playerControler, playerInventory);
 
                 Destroy(ColliderHit.gameObject);
 
@@ -201,7 +202,7 @@ public class PlayerInventory : MonoBehaviour
 
                     PlayerPrefs.Save();
 
-                    SaveSystem.SaveItems(playerInventory);
+                    SaveSystem.SavePlayer(playerControler, playerInventory);
 
                     break;
                 }

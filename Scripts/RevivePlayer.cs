@@ -1,24 +1,26 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
+
+
 public class RevivePlayer : MonoBehaviour
 {
    
-    public void CharactersDef(Characters characters)
+    public void CharactersDef(Characters characters, PlayerControler playerControler)
     {
 
        
       
         PlayerInventory playerInventory = new PlayerInventory();
 
-        characters.HP = characters.maxHP;
+        playerControler.HP = characters.maxHP;
 
 
-        characters.positionX = default;
+        /*characters.positionX = default;
         characters.positionY = default;
-        characters.positionZ = default;
+        characters.positionZ = default;*/
 
-       SaveSystem.SavePlayer(characters);
+       SaveSystem.SavePlayer(playerControler, playerInventory);
         
 
         SceneManager.LoadScene(characters.lastScene);

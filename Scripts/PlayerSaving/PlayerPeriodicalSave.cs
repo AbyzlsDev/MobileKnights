@@ -4,7 +4,7 @@ public class PlayerPeriodicalSave : MonoBehaviour
 {
     private float NextTimeToSave = 0f;
 
-    public Characters characters;
+    public PlayerControler playerControler;
     public PlayerInventory playerInventory;
 
     public GameObject player;
@@ -19,9 +19,7 @@ public class PlayerPeriodicalSave : MonoBehaviour
 
             NextTimeToSave = Time.time + 60f;
 
-            SaveSystem.SavePlayer(characters);
-
-            SaveSystem.SaveItems(playerInventory);
+            SaveSystem.SavePlayer(playerControler, playerInventory);
 
             Debug.Log("Saved the game");
 

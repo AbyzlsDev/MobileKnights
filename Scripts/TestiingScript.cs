@@ -3,31 +3,20 @@ using UnityEngine.UI;
 
 public class TestiingScript : MonoBehaviour
 {
-    public int CoinValue;
-    public Text text;
+    
+    public PlayerControler playerControler;
+    public PlayerInventory playerInventory;
 
     
 
-    public void SavePlayer(Characters characters, PlayerInventory playerInventory)
+    public void SavePlayer()
     {
         Debug.Log("Pressed the button");
-        SaveSystem.SavePlayer(characters);
-        SaveSystem.SaveItems(playerInventory);
-
-
+        SaveSystem.SavePlayer(playerControler, playerInventory);
+        
     }
 
   
 
-    private void Update()
-    {
-        text.text = CoinValue.ToString();
-    }
-
-    public void ValueAdd() {
-
-        CoinValue++;
-
-
-    }
+    
 }

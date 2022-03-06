@@ -1,10 +1,11 @@
 
+using System;
 using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public float health = 100;
-    public ScoreManager scoreManager;
+    public float health = 100; 
+    ScoreManager scoreManager;
     public Characters characters;
     
     
@@ -20,11 +21,16 @@ public class Target : MonoBehaviour
 
         if (health <= 0) {
 
-            scoreManager.GiveScore(characters.pointsAfterKill);
+           scoreManager.GiveScore(characters.pointsAfterKill);
             Destroy(gameObject);
         
         }
         
+    }
+
+    private void FixedUpdate()
+    {
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
 
     public void TakeDamage(int damage) {
