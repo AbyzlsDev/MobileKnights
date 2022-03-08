@@ -1,18 +1,32 @@
+using System;
+using System.IO;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TestiingScript : MonoBehaviour
 {
     
-    public PlayerControler playerControler;
-    public PlayerInventory playerInventory;
+     PlayerControler playerControler;
+     PlayerInventory playerInventory;
+     GetEnemiesInScene enemiesInScene;
+     Target _target;
 
-    
+     private void Start()
+     {
+         playerControler = FindObjectOfType<PlayerControler>();
+         playerInventory = FindObjectOfType<PlayerInventory>();
+         enemiesInScene = FindObjectOfType<GetEnemiesInScene>();
+         _target = FindObjectOfType<Target>();
+     }
 
-    public void SavePlayer()
+
+     public void SavePlayer()
     {
-        Debug.Log("Pressed the button");
         SaveSystem.SavePlayer(playerControler, playerInventory);
+        LevelDataSaveSystem.SaveLevelData(enemiesInScene, _target);
+        Debug.Log("Pressed the button");
+       
         
     }
 

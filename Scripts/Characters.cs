@@ -18,6 +18,8 @@ public class Characters : ScriptableObject
     public RuntimeAnimatorController animationController;
     public float fireModeID; // 1 - melee; 2 - ranged
     public string lastScene;
+    public string prefabPath;
+    public float instanceTypeId;
 
 
 

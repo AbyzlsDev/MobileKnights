@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   jumpHeight: 0
-  sprite: {fileID: 0}
   damage: 20
   CPS: 0
   AttackRange: 0
   description: 
   Name: 
   UltNumber: 0
-  HP: 0
   maxHP: 0
-  positionX: 0
-  positionY: 0
-  positionZ: 0
   pointsAfterKill: 15
+  animationController: {fileID: 0}
+  fireModeID: 0
+  lastScene: 
+  prefabPath: 
+  instanceTypeId: 1
