@@ -9,7 +9,7 @@ public class AllEnemyData
   
   public List<float> _deadEnemId = new List<float>();
 
-  public float _health;
+  public float  _health;
   
     public AllEnemyData(GetEnemiesInScene enemiesInScene, Target target)
     {

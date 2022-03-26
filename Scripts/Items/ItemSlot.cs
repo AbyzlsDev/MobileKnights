@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,8 +6,11 @@ using UnityEngine.UI;
 public class ItemSlot : MonoBehaviour
 {
     public Image[] itemsImage;
+    
     public PlayerInventory playerInventory;
-    public ItemScriptableObjects[] itemScriptableObjects;
+    
+    public List<ItemScriptableObjects> itemScriptableObjects = new List<ItemScriptableObjects>();
+    
     public Sprite UIimage;
 
     
@@ -15,11 +19,13 @@ public class ItemSlot : MonoBehaviour
     {
         playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>();
 
+        itemScriptableObjects = playerInventory.itemsArray;
+
         for (int i = 0; i < itemsImage.Length; i++)
         {
-            float id = playerInventory.item[i];
-           
-            itemsImage[i].sprite = itemScriptableObjects[(int)id - 1].gameObject.GetComponent<SpriteRenderer>().sprite;
+            float id = playerInventory.item[i] - 1;
+            
+            itemsImage[i].sprite = itemScriptableObjects[(int)id ].gameObject.GetComponent<SpriteRenderer>().sprite;
 
            
 
@@ -31,14 +37,11 @@ public class ItemSlot : MonoBehaviour
     {
         if (itemsImage.Length == playerInventory.item.Count)
         {
-            for (int i = 0; i < itemsImage.Length; i++)
+             for (int i = 0; i < itemsImage.Length; i++)
             {
-
-                float id = playerInventory.item[i];
-
-                itemsImage[i].sprite = itemScriptableObjects[(int)id - 1].gameObject.GetComponent<SpriteRenderer>().sprite;
-
-
+                float id = playerInventory.item[i] - 1;
+            
+                itemsImage[i].sprite = itemScriptableObjects[(int)id].gameObject.GetComponent<SpriteRenderer>().sprite;
 
             }
         }
@@ -49,9 +52,9 @@ public class ItemSlot : MonoBehaviour
 
                 itemsImage[i].sprite = UIimage;
 
-                float id = playerInventory.item[i];
+                float id = playerInventory.item[i] - 1;
 
-                itemsImage[i].sprite = itemScriptableObjects[(int)id - 1].gameObject.GetComponent<SpriteRenderer>().sprite;
+                itemsImage[i].sprite = itemScriptableObjects[(int)id].gameObject.GetComponent<SpriteRenderer>().sprite;
 
                 
                 

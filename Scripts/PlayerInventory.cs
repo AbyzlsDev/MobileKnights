@@ -1,28 +1,26 @@
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using UnityEditor;
 using UnityEngine;
-
-
-
-
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
 
 
 public class PlayerInventory : MonoBehaviour
 {
 
-   [SerializeField] public List<float> item = new List<float>();
+    [SerializeField] public List<float> item = new List<float>();
 
 
     public Characters characters;
     public PlayerControler playerControler;
     public PlayerInventory playerInventory;
-    public ItemScriptableObjects[] itemsArray;
 
-   
+    public List<ItemScriptableObjects> itemsArray = new List<ItemScriptableObjects>();
 
+    [SerializeField] public List<float> itemsOnGroundId = new List<float>();
 
-
-    [SerializeField]  public List<float> itemsOnGroundId = new List<float>(); 
- 
 
     //GameObject currentItem;
 
@@ -32,18 +30,47 @@ public class PlayerInventory : MonoBehaviour
 
     //9 slot inv, 1 slot hand, slot -> hand, slot empty, hand drop
 
-    string[] tags = { "level1", "item" };
+    string[] tags = {"level1", "item"};
+
+    List<string> keys = new List<string>() {"itemScriptables"};
+
+    AsyncOperationHandle<IList<ItemScriptableObjects>> loadHandle;
 
     private float nextTimeToDrop = 0f;
 
-   int maxWeapons = 3;
+    int maxWeapons = 3;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        //idk how is this working, but it fucking does
+
+        LoadAddressablesForItems();
+
 
     }
+
+    public void LoadAddressablesForItems()
+    {
+        loadHandle = Addressables.LoadAssetsAsync<ItemScriptableObjects>(keys, addressable =>
+        {
+            if (addressable != null)
+            {
+
+                itemsArray.Add(addressable);
+
+            }
+        }, Addressables.MergeMode.Union, false);
+        loadHandle.Completed += LoadHandle_Completed;
+    }
+
+    public void LoadHandle_Completed(AsyncOperationHandle<IList<ItemScriptableObjects>> operation)
+    {
+        if (operation.Status != AsyncOperationStatus.Succeeded)
+            Debug.LogWarning("Some assets did not load.");
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -51,7 +78,7 @@ public class PlayerInventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
 
-             
+            ItemUse();
 
 
         }
@@ -59,15 +86,15 @@ public class PlayerInventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
 
-            
 
+            ItemUse();
 
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
 
-           
+            ItemUse();
 
 
         }
@@ -110,7 +137,7 @@ public class PlayerInventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             ItemInstance();
-            
+
 
 
         }
@@ -151,7 +178,7 @@ public class PlayerInventory : MonoBehaviour
 
           }
         */
-        
+
     }
 
     void OnTriggerEnter2D(Collider2D ColliderHit)
@@ -162,10 +189,10 @@ public class PlayerInventory : MonoBehaviour
         {
             if (ColliderHit.transform.CompareTag(tags[i]) && item.Count < maxWeapons)
             {
-                
+
 
                 item.Add(ColliderHit.gameObject.GetComponent<ItemGetID>().ID);
-             
+
                 itemsOnGroundId.Remove(ColliderHit.gameObject.GetComponent<ItemGetID>().ID);
 
 
@@ -178,6 +205,7 @@ public class PlayerInventory : MonoBehaviour
         }
 
     }
+
     public void ItemInstance()
     {
         if (item.Count != 0)
@@ -186,23 +214,54 @@ public class PlayerInventory : MonoBehaviour
             {
                 if (item[0] == item[i])
                 {
-                    var id = item[i];
+                    float id = item[i] - 1;
 
-
-                    GameObject ItemInst = Instantiate(itemsArray[(int)id - 1].gameObject, dropPoint.position, Quaternion.identity);
+                    GameObject ItemInst = Instantiate(itemsArray[(int) id].gameObject, dropPoint.position,
+                        Quaternion.identity);
 
                     ItemInst.transform.localScale = new Vector2(3, 3);
 
                     item.RemoveAt(i);
 
-                    itemsOnGroundId.Add(id);
-
-                    PlayerPrefs.SetFloat(id.ToString() + "x", ItemInst.transform.position.x);
-                    PlayerPrefs.SetFloat(id.ToString() + "y", ItemInst.transform.position.y);
-
-                    PlayerPrefs.Save();
+                    /*  itemsOnGroundId.Add(id);
+  
+                      PlayerPrefs.SetFloat(id.ToString() + "x", ItemInst.transform.position.x);
+                      PlayerPrefs.SetFloat(id.ToString() + "y", ItemInst.transform.position.y);
+  
+                      PlayerPrefs.Save();*/
 
                     SaveSystem.SavePlayer(playerControler, playerInventory);
+
+                    break;
+                }
+            }
+
+        }
+
+    }
+
+    public void ItemUse()
+    {
+        if (item.Count != 0)
+        {
+            for (int i = 0; i < item.Count; i++)
+            {
+                if (item[0] == item[i])
+                {
+                    float id = item[i] - 1;
+
+                    GameObject ItemInst = Instantiate(itemsArray[(int) id].gameObject, dropPoint.position,
+                        Quaternion.identity);
+
+                    // ItemInst.GetComponent<SpriteRenderer>().sprite = null;
+
+                    item.RemoveAt(i);
+
+                    ItemInst.GetComponent<PotionEffect>().EffectInvokeHeal();
+
+                    SaveSystem.SavePlayer(playerControler, playerInventory);
+
+                    Destroy(ItemInst);
 
                     break;
                 }
