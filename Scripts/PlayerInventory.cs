@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Security.Cryptography;
 using UnityEditor;
 using UnityEngine;
@@ -71,30 +73,98 @@ public class PlayerInventory : MonoBehaviour
             Debug.LogWarning("Some assets did not load.");
     }
 
+    
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            if (item.Count != 0)
+            {
+                for (int i = 0; i < item.Count; i++)
+                {
+                    if (item[0] == item[i])
+                    {
+                        float id = item[i];
 
-            ItemUse();
+                        GameObject ItemInst = Instantiate(itemsArray[(int) id].gameObject, dropPoint.position,
+                            Quaternion.identity);
 
 
+                        item.RemoveAt(i);
+
+                        ItemInst.GetComponent<PotionEffect>().EffectInvokeHeal();
+
+                        SaveSystem.SavePlayer(playerControler, playerInventory);
+
+                        Destroy(ItemInst);
+
+                        break;
+                    }
+                }
+
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            if (item.Count >= 2)
+            {
+                for (int i = 0; i < item.Count; i++)
+                {
+                    if (item[1] == item[i])
+                    {
+                        float id = item[i];
+
+                        GameObject ItemInst = Instantiate(itemsArray[(int) id].gameObject, dropPoint.position,
+                            Quaternion.identity);
 
 
-            ItemUse();
+                        item.RemoveAt(i);
+
+                        ItemInst.GetComponent<PotionEffect>().EffectInvokeHeal();
+
+                        SaveSystem.SavePlayer(playerControler, playerInventory);
+
+                        Destroy(ItemInst);
+
+                        break;
+                    }
+                }
+
+            }
 
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
 
-            ItemUse();
+            if (item.Count == 3)
+            {
+                for (int i = 0; i < item.Count; i++)
+                {
+                    if (item[2] == item[i])
+                    {
+                        float id = item[i];
+
+                        GameObject ItemInst = Instantiate(itemsArray[(int) id].gameObject, dropPoint.position,
+                            Quaternion.identity);
+
+
+                        item.RemoveAt(i);
+
+                        ItemInst.GetComponent<PotionEffect>().EffectInvokeHeal();
+
+                        SaveSystem.SavePlayer(playerControler, playerInventory);
+
+                        Destroy(ItemInst);
+
+                        break;
+                    }
+                }
+
+            }
 
 
         }
@@ -193,7 +263,7 @@ public class PlayerInventory : MonoBehaviour
 
                 item.Add(ColliderHit.gameObject.GetComponent<ItemGetID>().ID);
 
-                itemsOnGroundId.Remove(ColliderHit.gameObject.GetComponent<ItemGetID>().ID);
+               // itemsOnGroundId.Remove(ColliderHit.gameObject.GetComponent<ItemGetID>().ID);
 
 
                 SaveSystem.SavePlayer(playerControler, playerInventory);
@@ -214,7 +284,7 @@ public class PlayerInventory : MonoBehaviour
             {
                 if (item[0] == item[i])
                 {
-                    float id = item[i] - 1;
+                    float id = item[i];
 
                     GameObject ItemInst = Instantiate(itemsArray[(int) id].gameObject, dropPoint.position,
                         Quaternion.identity);
@@ -240,7 +310,7 @@ public class PlayerInventory : MonoBehaviour
 
     }
 
-    public void ItemUse()
+  /*  public void ItemUse()
     {
         if (item.Count != 0)
         {
@@ -269,6 +339,6 @@ public class PlayerInventory : MonoBehaviour
 
         }
 
-    }
+    }*/
 
 }

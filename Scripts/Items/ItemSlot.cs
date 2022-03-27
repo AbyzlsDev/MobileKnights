@@ -23,9 +23,9 @@ public class ItemSlot : MonoBehaviour
 
         for (int i = 0; i < itemsImage.Length; i++)
         {
-            float id = playerInventory.item[i] - 1;
+            float id = playerInventory.item[i];
             
-            itemsImage[i].sprite = itemScriptableObjects[(int)id ].gameObject.GetComponent<SpriteRenderer>().sprite;
+            itemsImage[i].sprite = itemScriptableObjects[(int)id].gameObject.GetComponent<SpriteRenderer>().sprite;
 
            
 
@@ -39,7 +39,7 @@ public class ItemSlot : MonoBehaviour
         {
              for (int i = 0; i < itemsImage.Length; i++)
             {
-                float id = playerInventory.item[i] - 1;
+                float id = playerInventory.item[i];
             
                 itemsImage[i].sprite = itemScriptableObjects[(int)id].gameObject.GetComponent<SpriteRenderer>().sprite;
 
@@ -52,7 +52,7 @@ public class ItemSlot : MonoBehaviour
 
                 itemsImage[i].sprite = UIimage;
 
-                float id = playerInventory.item[i] - 1;
+                float id = playerInventory.item[i];
 
                 itemsImage[i].sprite = itemScriptableObjects[(int)id].gameObject.GetComponent<SpriteRenderer>().sprite;
 

@@ -27,8 +27,8 @@ MonoBehaviour:
     m_Address: Assets/Scripts/Camera.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+    m_MainAsset: {fileID: 4230720087196470820, guid: 79c6b11b40b8976439a09ce93f9cbfab, type: 3}
+    m_TargetAsset: {fileID: 4230720087196470820, guid: 79c6b11b40b8976439a09ce93f9cbfab, type: 3}
   - m_GUID: 2cda990e2423bbf4892e6590ba056729
     m_Address: Assets/Scenes/MainGame.unity
     m_ReadOnly: 0
@@ -41,27 +41,27 @@ MonoBehaviour:
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
-  - m_GUID: 2302a1b9b5037b3498240aed5d219708
-    m_Address: Assets/Scripts/Items/ItemsScriptableObjects/item2.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - itemScriptables
-    m_MainAsset: {fileID: 11400000, guid: 2302a1b9b5037b3498240aed5d219708, type: 2}
-    m_TargetAsset: {fileID: 11400000, guid: 2302a1b9b5037b3498240aed5d219708, type: 2}
   - m_GUID: c71ed76a99ba00e48a2e242b86aacc7f
-    m_Address: Assets/Scripts/Items/ItemsScriptableObjects/item1.asset
+    m_Address: Assets/Scripts/Items/ItemsScriptableObjects/item0.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - itemScriptables
     m_MainAsset: {fileID: 11400000, guid: c71ed76a99ba00e48a2e242b86aacc7f, type: 2}
     m_TargetAsset: {fileID: 11400000, guid: c71ed76a99ba00e48a2e242b86aacc7f, type: 2}
   - m_GUID: 514a1a6a796c99a48856901039a9036c
-    m_Address: Assets/Scripts/Items/ItemsScriptableObjects/item3.asset
+    m_Address: Assets/Scripts/Items/ItemsScriptableObjects/item2.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - itemScriptables
     m_MainAsset: {fileID: 11400000, guid: 514a1a6a796c99a48856901039a9036c, type: 2}
     m_TargetAsset: {fileID: 11400000, guid: 514a1a6a796c99a48856901039a9036c, type: 2}
+  - m_GUID: 2302a1b9b5037b3498240aed5d219708
+    m_Address: Assets/Scripts/Items/ItemsScriptableObjects/item1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - itemScriptables
+    m_MainAsset: {fileID: 11400000, guid: 2302a1b9b5037b3498240aed5d219708, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 2302a1b9b5037b3498240aed5d219708, type: 2}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 85f24c2510aacfa44ba6bc1d000e6c29, type: 2}
   m_SchemaSet:

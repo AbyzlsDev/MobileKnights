@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5137f7b545d08964182e187466354a58, type: 3}
-  m_Name: item3
+  m_Name: item0
   m_EditorClassIdentifier: 
-  ID: 3
-  gameObject: {fileID: 1639670311032828492, guid: 84e2aee4f2e904245862905072cde809, type: 3}
+  ID: 0
+  gameObject: {fileID: 1473858087752056461, guid: b4ad48b76a06b9a489930362e86d2925, type: 3}
+  position:
+  - 0
+  - 0
