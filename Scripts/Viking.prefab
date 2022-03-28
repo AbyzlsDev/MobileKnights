@@ -125,8 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03d391d984c9ace4c83587170af4c910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
   image: {fileID: 5952551441952842940}
+  path: Assets/Scenes/SelectCharacter.unity
 --- !u!114 &5952551442406098047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 5058687660417597440}
   - component: {fileID: 7183800063911002804}
   m_Layer: 3
-  m_Name: Player
+  m_Name: Viking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controler: {fileID: 5058687660417597442}
-  characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
+  characters: {fileID: 11400000, guid: c122aa43c8f7d10468327eef58a2cf7b, type: 2}
   HP: 100
   score: 0
   Player: {fileID: 5058687660765109454}
@@ -683,7 +683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangedFireMode: {fileID: 5058687660765109435}
   closedRangeMode: {fileID: 5058687660765109427}
-  characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
+  characters: {fileID: 11400000, guid: c122aa43c8f7d10468327eef58a2cf7b, type: 2}
   attackButton: {fileID: 5952551443175095834}
 --- !u!114 &5058687660765109428
 MonoBehaviour:
@@ -698,7 +698,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: []
-  characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
   playerControler: {fileID: 5058687660417597443}
   playerInventory: {fileID: 5058687660765109428}
   itemsArray: []
@@ -1875,6 +1874,7 @@ GameObject:
   - component: {fileID: 5952551441952842943}
   - component: {fileID: 5952551441952842941}
   - component: {fileID: 5952551441952842940}
+  - component: {fileID: 3420668220193722664}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1939,6 +1939,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3420668220193722664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5952551441952842942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b523364708c4094698daad1e6582688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5952551442257668599
 GameObject:
   m_ObjectHideFlags: 0

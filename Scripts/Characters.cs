@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName ="Characters", menuName ="Characters")]
 public class Characters : ScriptableObject
@@ -20,6 +21,7 @@ public class Characters : ScriptableObject
     public string lastScene;
     public string prefabPath;
     public float instanceTypeId;
+    public Sprite characterImage;
 
 
 

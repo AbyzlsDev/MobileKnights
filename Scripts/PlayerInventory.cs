@@ -15,7 +15,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] public List<float> item = new List<float>();
 
 
-    public Characters characters;
+   
     public PlayerControler playerControler;
     public PlayerInventory playerInventory;
 

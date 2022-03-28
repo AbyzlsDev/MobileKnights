@@ -17,18 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: f31ee7ac3f4580148976f2de9572f1ce
   m_SerializeEntries:
-  - m_GUID: 4f85b5a07b2782643ba7b3bf8063ef85
-    m_Address: Assets/Scripts/Player.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: 79c6b11b40b8976439a09ce93f9cbfab
     m_Address: Assets/Scripts/Camera.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 4230720087196470820, guid: 79c6b11b40b8976439a09ce93f9cbfab, type: 3}
-    m_TargetAsset: {fileID: 4230720087196470820, guid: 79c6b11b40b8976439a09ce93f9cbfab, type: 3}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 2cda990e2423bbf4892e6590ba056729
     m_Address: Assets/Scenes/MainGame.unity
     m_ReadOnly: 0
@@ -46,22 +40,34 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - itemScriptables
-    m_MainAsset: {fileID: 11400000, guid: c71ed76a99ba00e48a2e242b86aacc7f, type: 2}
-    m_TargetAsset: {fileID: 11400000, guid: c71ed76a99ba00e48a2e242b86aacc7f, type: 2}
-  - m_GUID: 514a1a6a796c99a48856901039a9036c
-    m_Address: Assets/Scripts/Items/ItemsScriptableObjects/item2.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - itemScriptables
-    m_MainAsset: {fileID: 11400000, guid: 514a1a6a796c99a48856901039a9036c, type: 2}
-    m_TargetAsset: {fileID: 11400000, guid: 514a1a6a796c99a48856901039a9036c, type: 2}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 2302a1b9b5037b3498240aed5d219708
     m_Address: Assets/Scripts/Items/ItemsScriptableObjects/item1.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - itemScriptables
-    m_MainAsset: {fileID: 11400000, guid: 2302a1b9b5037b3498240aed5d219708, type: 2}
-    m_TargetAsset: {fileID: 11400000, guid: 2302a1b9b5037b3498240aed5d219708, type: 2}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 514a1a6a796c99a48856901039a9036c
+    m_Address: Assets/Scripts/Items/ItemsScriptableObjects/item2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - itemScriptables
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 0553a0c820e741f42915a2abe80fcf15
+    m_Address: Assets/Scripts/Wizard.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2755650681634515378, guid: 0553a0c820e741f42915a2abe80fcf15, type: 3}
+    m_TargetAsset: {fileID: 2755650681634515378, guid: 0553a0c820e741f42915a2abe80fcf15, type: 3}
+  - m_GUID: 07937661afe8128499b3410221d0277f
+    m_Address: Assets/Scripts/Viking.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2755650681634515378, guid: 07937661afe8128499b3410221d0277f, type: 3}
+    m_TargetAsset: {fileID: 2755650681634515378, guid: 07937661afe8128499b3410221d0277f, type: 3}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 85f24c2510aacfa44ba6bc1d000e6c29, type: 2}
   m_SchemaSet:

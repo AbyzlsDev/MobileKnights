@@ -445,7 +445,6 @@ MonoBehaviour:
   Attack: {fileID: 738326663}
   Name: {fileID: 913676155}
   Description: {fileID: 1980107138}
-  Image: {fileID: 916851771}
 --- !u!114 &150176650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,8 +649,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 294934587}
-        m_TargetAssemblyTypeName: PlayerChoose, Assembly-CSharp
-        m_MethodName: PlayerCharacter1
+        m_TargetAssemblyTypeName: PlayerChoose, PlayerClasses
+        m_MethodName: VikingChoose
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -710,6 +709,7 @@ GameObject:
   - component: {fileID: 278715077}
   - component: {fileID: 278715076}
   - component: {fileID: 278715075}
+  - component: {fileID: 278715078}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -774,6 +774,19 @@ RectTransform:
   m_AnchoredPosition: {x: -250, y: 140}
   m_SizeDelta: {x: 275.65, y: 344.4429}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &278715078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278715074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ca5dd6301d11a488790ac2b7cb935a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: c122aa43c8f7d10468327eef58a2cf7b, type: 2}
 --- !u!1 &294934583
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,10 +878,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abddf30343052234ca6fa26638eb5182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characters: {fileID: 11400000, guid: 951fd556b81608949a8523608c0f4512, type: 2}
-  Viking: {fileID: 11400000, guid: c122aa43c8f7d10468327eef58a2cf7b, type: 2}
-  Wizard: {fileID: 11400000, guid: 4d75e1741ba1dcb4cb7824baf0a99cb0, type: 2}
-  Rouge: {fileID: 11400000, guid: f6c6eb85e94c2e445bc7e15be8c42a21, type: 2}
+  path: 
+  playableCharacters:
+  - {fileID: 11400000, guid: c122aa43c8f7d10468327eef58a2cf7b, type: 2}
+  - {fileID: 11400000, guid: 4d75e1741ba1dcb4cb7824baf0a99cb0, type: 2}
 --- !u!1 &333336843
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,7 +1022,6 @@ MonoBehaviour:
   Attack: {fileID: 333336845}
   Name: {fileID: 1663530180}
   Description: {fileID: 827106376}
-  Image: {fileID: 278715075}
 --- !u!114 &388147732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1059,6 +1071,7 @@ GameObject:
   - component: {fileID: 736607318}
   - component: {fileID: 736607317}
   - component: {fileID: 736607316}
+  - component: {fileID: 736607319}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -1123,6 +1136,19 @@ RectTransform:
   m_AnchoredPosition: {x: 40, y: 140.00002}
   m_SizeDelta: {x: -2.350006, y: 252.4429}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &736607319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736607315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ca5dd6301d11a488790ac2b7cb935a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: 4d75e1741ba1dcb4cb7824baf0a99cb0, type: 2}
 --- !u!1 &738326661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,6 +1403,7 @@ GameObject:
   - component: {fileID: 916851773}
   - component: {fileID: 916851772}
   - component: {fileID: 916851771}
+  - component: {fileID: 916851774}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1441,6 +1468,19 @@ RectTransform:
   m_AnchoredPosition: {x: 39, y: 140.00002}
   m_SizeDelta: {x: 275.65, y: 344.4429}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &916851774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916851770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ca5dd6301d11a488790ac2b7cb935a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: f6c6eb85e94c2e445bc7e15be8c42a21, type: 2}
 --- !u!1 &949876084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,7 +1540,6 @@ MonoBehaviour:
   Attack: {fileID: 120983137}
   Name: {fileID: 1194570755}
   Description: {fileID: 1425641636}
-  Image: {fileID: 736607316}
 --- !u!114 &949876087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1624,8 +1663,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 294934587}
-        m_TargetAssemblyTypeName: PlayerChoose, Assembly-CSharp
-        m_MethodName: PlayerCharacter2
+        m_TargetAssemblyTypeName: PlayerChoose, PlayerClasses
+        m_MethodName: WizardChoose
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

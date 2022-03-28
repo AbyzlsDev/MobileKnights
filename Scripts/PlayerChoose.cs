@@ -4,60 +4,33 @@ using UnityEngine.SceneManagement;
 
 public class PlayerChoose : MonoBehaviour
 {
-    public Characters characters;
-    public Characters Viking;
-    public Characters Wizard;
-    public Characters Rouge;
+  
+    public Characters[] playableCharacters;
 
-    public void PlayerCharacter1() {
+    public static string path;
+  
+    public void VikingChoose()
+    {
 
-
-        characters.speed = Viking.speed;
-        characters.jumpHeight = Viking.jumpHeight;
-        characters.damage = Viking.damage;
-        characters.CPS = Viking.CPS;
-        characters.AttackRange = Viking.AttackRange;
-        characters.UltNumber = Viking.UltNumber;
-        characters.maxHP = Viking.maxHP;
-        characters.animationController = Viking.animationController;
-        characters.fireModeID = Viking.fireModeID;
+        path = playableCharacters[0].prefabPath;
 
 
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("ManagmentScene");
 
 
     }
 
-    public void PlayerCharacter2() {
+    public void WizardChoose() {
 
-        characters.speed = Wizard.speed;
-        characters.jumpHeight = Wizard.jumpHeight;
-        characters.damage = Wizard.damage;
-        characters.CPS = Wizard.CPS;
-        characters.AttackRange = Wizard.AttackRange; 
-        characters.UltNumber = Wizard.UltNumber;
-        characters.maxHP = Wizard.maxHP;
-        characters.animationController = Wizard.animationController;
-        characters.fireModeID = Wizard.fireModeID;
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        path = playableCharacters[1].prefabPath;
+        
+        SceneManager.LoadScene("ManagmentScene");
 
     }
 
     public void PlayerCharacter3()
     {
-        characters.speed = Rouge.speed;
-        characters.jumpHeight = Rouge.jumpHeight;
-        characters.damage = Rouge.damage;
-        characters.CPS = Rouge.CPS;
-        characters.AttackRange = Rouge.AttackRange;
-        characters.UltNumber = Rouge.UltNumber;
-        characters.maxHP = Rouge.maxHP;
-        characters.animationController = Rouge.animationController;
-        characters.fireModeID = Rouge.fireModeID;
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("ManagmentScene");
 
     }
 }
