@@ -23,12 +23,6 @@ MonoBehaviour:
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
-  - m_GUID: 2cda990e2423bbf4892e6590ba056729
-    m_Address: Assets/Scenes/MainGame.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: 53b608371848f10458cb6cd973ac30da
     m_Address: Assets/Scenes/Level2.unity
     m_ReadOnly: 0
@@ -60,14 +54,14 @@ MonoBehaviour:
     m_Address: Assets/Scripts/Wizard.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 2755650681634515378, guid: 0553a0c820e741f42915a2abe80fcf15, type: 3}
-    m_TargetAsset: {fileID: 2755650681634515378, guid: 0553a0c820e741f42915a2abe80fcf15, type: 3}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 07937661afe8128499b3410221d0277f
     m_Address: Assets/Scripts/Viking.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 2755650681634515378, guid: 07937661afe8128499b3410221d0277f, type: 3}
-    m_TargetAsset: {fileID: 2755650681634515378, guid: 07937661afe8128499b3410221d0277f, type: 3}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 85f24c2510aacfa44ba6bc1d000e6c29, type: 2}
   m_SchemaSet:

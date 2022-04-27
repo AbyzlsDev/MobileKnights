@@ -20,6 +20,8 @@ public class PlayerInventory : MonoBehaviour
     public PlayerInventory playerInventory;
 
     public List<ItemScriptableObjects> itemsArray = new List<ItemScriptableObjects>();
+    private int backpackSize = 9;
+    public List<float> backpack = new List<float>();
 
     [SerializeField] public List<float> itemsOnGroundId = new List<float>();
 
@@ -271,6 +273,14 @@ public class PlayerInventory : MonoBehaviour
                 Destroy(ColliderHit.gameObject);
 
 
+            }
+            else if (ColliderHit.transform.CompareTag(tags[i]) && backpack.Count < backpackSize)
+            {
+                
+                backpack.Add(ColliderHit.gameObject.GetComponent<ItemGetID>().ID);
+                
+                Destroy(ColliderHit.gameObject);
+                
             }
         }
 
