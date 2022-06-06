@@ -9,21 +9,24 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceLocations;
 
 
+
 public class PlayerInventory : MonoBehaviour
 {
 
     [SerializeField] public List<float> item = new List<float>();
+    [SerializeField] public List<float> backpackId = new List<float>();
+    [SerializeField] public List<float> itemsOnGroundId = new List<float>();
 
 
-   
+
     public PlayerControler playerControler;
     public PlayerInventory playerInventory;
 
-    public List<ItemScriptableObjects> itemsArray = new List<ItemScriptableObjects>();
+    public List<GameObject> itemsArray = new List<GameObject>();
+    public List<GameObject> backpackGameObjects = new List<GameObject>();
     private int backpackSize = 9;
-    public List<float> backpack = new List<float>();
 
-    [SerializeField] public List<float> itemsOnGroundId = new List<float>();
+    
 
 
     //GameObject currentItem;
@@ -38,7 +41,7 @@ public class PlayerInventory : MonoBehaviour
 
     List<string> keys = new List<string>() {"itemScriptables"};
 
-    AsyncOperationHandle<IList<ItemScriptableObjects>> loadHandle;
+    AsyncOperationHandle<IList<GameObject>> loadHandle;
 
     private float nextTimeToDrop = 0f;
 
@@ -57,7 +60,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void LoadAddressablesForItems()
     {
-        loadHandle = Addressables.LoadAssetsAsync<ItemScriptableObjects>(keys, addressable =>
+        loadHandle = Addressables.LoadAssetsAsync<GameObject>(keys, addressable =>
         {
             if (addressable != null)
             {
@@ -69,7 +72,7 @@ public class PlayerInventory : MonoBehaviour
         loadHandle.Completed += LoadHandle_Completed;
     }
 
-    public void LoadHandle_Completed(AsyncOperationHandle<IList<ItemScriptableObjects>> operation)
+    public void LoadHandle_Completed(AsyncOperationHandle<IList<GameObject>> operation)
     {
         if (operation.Status != AsyncOperationStatus.Succeeded)
             Debug.LogWarning("Some assets did not load.");
@@ -274,10 +277,10 @@ public class PlayerInventory : MonoBehaviour
 
 
             }
-            else if (ColliderHit.transform.CompareTag(tags[i]) && backpack.Count < backpackSize)
+            else if (ColliderHit.transform.CompareTag(tags[i]) && backpackId.Count < backpackSize)
             {
                 
-                backpack.Add(ColliderHit.gameObject.GetComponent<ItemGetID>().ID);
+                backpackId.Add(ColliderHit.gameObject.GetComponent<ItemGetID>().ID);
                 
                 Destroy(ColliderHit.gameObject);
                 

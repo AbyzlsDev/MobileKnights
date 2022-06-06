@@ -13,7 +13,9 @@ public class InventoryToggle : MonoBehaviour
 
    private PlayerInventory _playerInventory;
 
-   public Image[] _images;
+   public List<float> backpackIds = new List<float>();
+
+   public Button[] _images;
 
  
 
@@ -23,13 +25,9 @@ public class InventoryToggle : MonoBehaviour
     void Start()
     {
 
-        _images = GetComponentsInChildren<Image>();
+        _images = GetComponentsInChildren<Button>();
 
         _playerInventory = FindObjectOfType<PlayerInventory>();
-        
-        
-
-       
         
         inventoryGameObject.SetActive(false);
         
@@ -41,10 +39,16 @@ public class InventoryToggle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < _playerInventory.backpack.Count; i++)
+        for (int i = 0; i < _playerInventory.backpackId.Count; i++) // fix backpackId with backpack
         {
-            _images[i].sprite = _playerInventory.itemsArray[(int)_playerInventory.backpack[i]].gameObject.GetComponent<SpriteRenderer>().sprite;
+            _images[i].GetComponent<Image>().sprite = _playerInventory.itemsArray[(int)_playerInventory.backpackId[i]].gameObject.GetComponent<SpriteRenderer>().sprite;
+
+
+            _images[i].GetComponent<SlotId>().id = _playerInventory.backpackId[i];
+
         }
+        
+        
 
 
         if (Input.GetKeyDown(KeyCode.P) && opened == false)

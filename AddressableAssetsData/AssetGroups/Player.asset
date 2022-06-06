@@ -29,22 +29,22 @@ MonoBehaviour:
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
-  - m_GUID: c71ed76a99ba00e48a2e242b86aacc7f
-    m_Address: Assets/Scripts/Items/ItemsScriptableObjects/item0.asset
+  - m_GUID: b4ad48b76a06b9a489930362e86d2925
+    m_Address: Assets/Scripts/Items/Prefabs/Item0.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - itemScriptables
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
-  - m_GUID: 2302a1b9b5037b3498240aed5d219708
-    m_Address: Assets/Scripts/Items/ItemsScriptableObjects/item1.asset
+  - m_GUID: 063a828c8d71d6e4882d6ebec15f7c4d
+    m_Address: Assets/Scripts/Items/Prefabs/Item1.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - itemScriptables
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
-  - m_GUID: 514a1a6a796c99a48856901039a9036c
-    m_Address: Assets/Scripts/Items/ItemsScriptableObjects/item2.asset
+  - m_GUID: 84e2aee4f2e904245862905072cde809
+    m_Address: Assets/Scripts/Items/Prefabs/Item2.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - itemScriptables

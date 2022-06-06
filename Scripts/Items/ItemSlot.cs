@@ -9,7 +9,7 @@ public class ItemSlot : MonoBehaviour
     
     public PlayerInventory playerInventory;
     
-    public List<ItemScriptableObjects> itemScriptableObjects = new List<ItemScriptableObjects>();
+    public List<GameObject> itemScriptableObjects = new List<GameObject>();
     
     public Sprite UIimage;
 
