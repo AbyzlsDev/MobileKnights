@@ -22,6 +22,7 @@ public class SlotId : MonoBehaviour
         if (!_getIDitem.clicked )
         {
             _getIDitem.clicked = true;
+            
         } else _getIDitem.clicked = false;
 
 

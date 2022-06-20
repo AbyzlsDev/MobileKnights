@@ -12,6 +12,8 @@ public class GetIDitem : MonoBehaviour
     private InventoryToggle _inventoryToggle;
 
   public bool clicked = false;
+
+  public bool switchActive = false;
     
     private SlotId _slotId;
 
@@ -30,7 +32,8 @@ public class GetIDitem : MonoBehaviour
 
     public void GetId(float id)
     {
-
+        switchActive = true;
+        
         switch (clicked)
         {
             case false:
