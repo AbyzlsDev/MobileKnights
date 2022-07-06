@@ -13,8 +13,6 @@ public class InventoryToggle : MonoBehaviour
 
    private PlayerInventory _playerInventory;
 
-   public List<float> backpackIds = new List<float>();
-
    public Button[] _images;
 
  

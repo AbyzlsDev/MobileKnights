@@ -3,22 +3,19 @@ using UnityEngine;
 
 public class ItemSwitchPlaces : MonoBehaviour
 {
-    public float selectedItem = Single.NaN;
-    public float itemToReplace = Single.NaN;
+    public float selectedItem = 0;
+    public float itemToReplace = 0;
 
 
-    private GetIDitem _getIDitem;
+    private GetIDitem getIDitem;
 
 
-    private InventoryToggle _inventoryToggle;
 
     private PlayerInventory _playerInventory;
 
     void Start()
     {
-        _inventoryToggle = FindObjectOfType<InventoryToggle>();
-
-        _getIDitem = FindObjectOfType<GetIDitem>();
+        getIDitem = FindObjectOfType<GetIDitem>();
 
         _playerInventory = FindObjectOfType<PlayerInventory>();
 
@@ -29,29 +26,40 @@ public class ItemSwitchPlaces : MonoBehaviour
     void Update()
     {
 
-        if (_getIDitem.switchActive && Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !getIDitem.switched) 
+        {
+            
+        }
         {
 
-            (_playerInventory.backpackId[_playerInventory.backpackId.IndexOf(selectedItem)], _playerInventory.backpackId[_playerInventory.backpackId.IndexOf(itemToReplace)]) = 
-                (_playerInventory.backpackId[_playerInventory.backpackId.IndexOf(itemToReplace)], _playerInventory.backpackId[_playerInventory.backpackId.IndexOf(selectedItem)]);
-            
-            ResetToDefault();
-            
-} 
-           else if (!Input.GetKey(KeyCode.LeftShift) && _getIDitem.switchActive)
-            {
-                ResetToDefault();
-            }
+            (_playerInventory.backpackId[_playerInventory.backpackId.IndexOf(selectedItem)],
+                _playerInventory.backpackId[_playerInventory.backpackId.IndexOf(itemToReplace)]) = (
+                _playerInventory.backpackId[_playerInventory.backpackId.IndexOf(itemToReplace)],
+                _playerInventory.backpackId[_playerInventory.backpackId.IndexOf(selectedItem)]);
 
-            void ResetToDefault()
-            {
-                _getIDitem.switchActive = false;
-                _getIDitem.clicked = false;
-                selectedItem = Single.NaN;
-                itemToReplace = Single.NaN;
-            }
+            getIDitem.switched = true;
+
+
+
+        }
+
+
+        if (Input.GetKey(KeyCode.LeftShift) && getIDitem.switched)
+        {
+            ResetToDefault();
+        }
+
+        void ResetToDefault()
+        {
+            getIDitem.switched = false;
+            getIDitem.clicked = false;
+
+            selectedItem = Single.NaN;
+            itemToReplace = Single.NaN;
+        }
     }
-    }
+}
+
 
 
 

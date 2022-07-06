@@ -17,17 +17,32 @@ public class SlotId : MonoBehaviour
     }
 
    public void Click()
-    {
-
-        if (!_getIDitem.clicked )
-        {
-            _getIDitem.clicked = true;
-            
-        } else _getIDitem.clicked = false;
-
-
-        _getIDitem.GetId(id);
+   {
        
+        
+        switch (_getIDitem.clicked)
+        {
+            case false:
+                
+                _getIDitem.clicked = true;
+               
+                break;
+            
+            case true:
+                
+                _getIDitem.clicked = false;
+                
+                break;
+
+        }
+       
+        
+        _getIDitem.GetId(id);
+      
+        
+
+
+      
 
     }
 }

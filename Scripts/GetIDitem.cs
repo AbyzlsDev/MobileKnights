@@ -1,30 +1,24 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
+using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
+
 
 public class GetIDitem : MonoBehaviour
 {
     private ItemSwitchPlaces _itemSwitchPlaces;
-
-    private InventoryToggle _inventoryToggle;
-
-  public bool clicked = false;
-
-  public bool switchActive = false;
     
-    private SlotId _slotId;
+    
+     public bool clicked ;
+
+
+     public bool switched;
+      
+    
 
     private void Start()
     {
-        _inventoryToggle = FindObjectOfType<InventoryToggle>();
-       
         _itemSwitchPlaces = FindObjectOfType<ItemSwitchPlaces>();
-
-        _slotId = FindObjectOfType<SlotId>();
-
+        
     }
 
 
@@ -32,7 +26,7 @@ public class GetIDitem : MonoBehaviour
 
     public void GetId(float id)
     {
-        switchActive = true;
+        
         
         switch (clicked)
         {
@@ -43,10 +37,8 @@ public class GetIDitem : MonoBehaviour
             
             case true:
                 _itemSwitchPlaces.itemToReplace = id;
-                
-                break;
-           
 
+                break;
 
         }
 
