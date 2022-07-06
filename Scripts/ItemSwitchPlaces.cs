@@ -27,9 +27,7 @@ public class ItemSwitchPlaces : MonoBehaviour
     {
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && !getIDitem.switched) 
-        {
-            
-        }
+       
         {
 
             (_playerInventory.backpackId[_playerInventory.backpackId.IndexOf(selectedItem)],
